@@ -1,0 +1,183 @@
+
+/* Class = "UILabel"; text = "nickname"; ObjectID = "3Sh-eS-e4I"; */
+"3Sh-eS-e4I.text" = "nickname";
+
+/* Class = "UILabel"; text = "確定離開此聊天室？"; ObjectID = "6aO-gk-ZGS"; */
+"6aO-gk-ZGS.text" = "確定離開此聊天室？";
+
+/* Class = "UITextField"; placeholder = "請輸入6-12位字母或數字"; ObjectID = "6hD-sn-brn"; */
+"6hD-sn-brn.placeholder" = "請輸入6-12位字母或數字";
+
+/* Class = "UILabel"; text = "nickname"; ObjectID = "8tt-4L-qOD"; */
+"8tt-4L-qOD.text" = "nickname";
+
+/* Class = "UIButton"; normalTitle = "立馬走"; ObjectID = "9Oz-wq-WNn"; */
+"9Oz-wq-WNn.normalTitle" = "立馬走";
+
+/* Class = "UILabel"; text = "online_num"; ObjectID = "9xV-ay-Axk"; */
+"9xV-ay-Axk.text" = "online_num";
+
+/* Class = "UIButton"; configuration.title = "登入"; ObjectID = "BcL-Lr-Jvx"; */
+"BcL-Lr-Jvx.configuration.title" = "登入";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "BcL-Lr-Jvx"; */
+"BcL-Lr-Jvx.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "發送重設密碼驗證信"; ObjectID = "CkW-gb-3Ip"; */
+"CkW-gb-3Ip.configuration.title" = "發送重設密碼驗證信";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "CkW-gb-3Ip"; */
+"CkW-gb-3Ip.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "online_num"; ObjectID = "DgL-In-Otk"; */
+"DgL-In-Otk.text" = "online_num";
+
+/* Class = "UITextField"; placeholder = "您的稱呼"; ObjectID = "Eku-9o-aXq"; */
+"Eku-9o-aXq.placeholder" = "您的稱呼";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Hhm-nG-tsI"; */
+"Hhm-nG-tsI.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "請輸入6-12位字母或數字"; ObjectID = "IUJ-MH-BIS"; */
+"IUJ-MH-BIS.placeholder" = "請輸入6-12位字母或數字";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "K1u-vh-g4c"; */
+"K1u-vh-g4c.normalTitle" = "Button";
+
+/* Class = "UITabBarItem"; title = "Search"; ObjectID = "Ll9-O1-X5h"; */
+"Ll9-O1-X5h.title" = "Search";
+
+/* Class = "UINavigationItem"; title = "註冊會員"; ObjectID = "R3l-A6-DiV"; */
+"R3l-A6-DiV.title" = "註冊會員";
+
+/* Class = "UINavigationItem"; title = "重設密碼"; ObjectID = "RNr-FS-Mkq"; */
+"RNr-FS-Mkq.title" = "重設密碼";
+
+/* Class = "UITabBarItem"; title = "Profile"; ObjectID = "S1G-LX-PlV"; */
+"S1G-LX-PlV.title" = "Profile";
+
+/* Class = "UILabel"; text = "信箱"; ObjectID = "T3M-81-TDe"; */
+"T3M-81-TDe.text" = "信箱";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "U1N-ZC-WaF"; */
+"U1N-ZC-WaF.text" = "Label";
+
+/* Class = "UILabel"; text = "密碼"; ObjectID = "ULT-EW-0yq"; */
+"ULT-EW-0yq.text" = "密碼";
+
+/* Class = "UILabel"; text = "密碼"; ObjectID = "Ucx-ZQ-HYw"; */
+"Ucx-ZQ-HYw.text" = "密碼";
+
+/* Class = "UILabel"; text = "會員資訊"; ObjectID = "Uxl-hn-eXe"; */
+"Uxl-hn-eXe.text" = "會員資訊";
+
+/* Class = "UIButton"; normalTitle = "更改"; ObjectID = "VEB-Vd-IP6"; */
+"VEB-Vd-IP6.normalTitle" = "更改";
+
+/* Class = "UITabBarItem"; title = "Home"; ObjectID = "W9j-fx-tI9"; */
+"W9j-fx-tI9.title" = "Home";
+
+/* Class = "UITabBarItem"; title = "Home"; ObjectID = "YYo-El-Dlc"; */
+"YYo-El-Dlc.title" = "Home";
+
+/* Class = "UILabel"; text = "title"; ObjectID = "b5u-XL-GDb"; */
+"b5u-XL-GDb.text" = "title";
+
+/* Class = "UILabel"; text = "tags"; ObjectID = "c6H-3C-ztu"; */
+"c6H-3C-ztu.text" = "tags";
+
+/* Class = "UIButton"; normalTitle = "登出"; ObjectID = "dS3-7B-g6x"; */
+"dS3-7B-g6x.normalTitle" = "登出";
+
+/* Class = "UILabel"; text = "暱稱："; ObjectID = "dWX-gf-07n"; */
+"dWX-gf-07n.text" = "暱稱：";
+
+/* Class = "UIButton"; configuration.title = "送出"; ObjectID = "dpZ-IL-r7w"; */
+"dpZ-IL-r7w.configuration.title" = "送出";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "dpZ-IL-r7w"; */
+"dpZ-IL-r7w.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "帳號"; ObjectID = "eGc-S2-0k3"; */
+"eGc-S2-0k3.text" = "帳號";
+
+/* Class = "UILabel"; text = "帳號"; ObjectID = "eV1-bc-kBe"; */
+"eV1-bc-kBe.text" = "帳號";
+
+/* Class = "UITabBarItem"; title = "Profile"; ObjectID = "eXw-5a-y1j"; */
+"eXw-5a-y1j.title" = "Profile";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "hmD-uT-Xvf"; */
+"hmD-uT-Xvf.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "hmf-UG-22g"; */
+"hmf-UG-22g.placeholder" = "Email";
+
+/* Class = "UISearchBar"; iUf-vz-uDm.scopeButtonTitles[0] = "Title"; ObjectID = "iUf-vz-uDm"; */
+"iUf-vz-uDm.scopeButtonTitles[0]" = "Title";
+
+/* Class = "UISearchBar"; iUf-vz-uDm.scopeButtonTitles[1] = "Title"; ObjectID = "iUf-vz-uDm"; */
+"iUf-vz-uDm.scopeButtonTitles[1]" = "Title";
+
+/* Class = "UIButton"; normalTitle = "先不要"; ObjectID = "jbP-sB-Bl4"; */
+"jbP-sB-Bl4.normalTitle" = "先不要";
+
+/* Class = "UILabel"; text = "tags"; ObjectID = "kHY-hI-T8k"; */
+"kHY-hI-T8k.text" = "tags";
+
+/* Class = "UILabel"; text = "title"; ObjectID = "laY-fO-AMJ"; */
+"laY-fO-AMJ.text" = "title";
+
+/* Class = "UIButton"; configuration.title = "註冊"; ObjectID = "lqj-kx-24D"; */
+"lqj-kx-24D.configuration.title" = "註冊";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "lqj-kx-24D"; */
+"lqj-kx-24D.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "重設密碼"; ObjectID = "lvH-78-f3b"; */
+"lvH-78-f3b.configuration.title" = "重設密碼";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "lvH-78-f3b"; */
+"lvH-78-f3b.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "m8R-pT-i6E"; */
+"m8R-pT-i6E.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "暱稱"; ObjectID = "mua-Bj-sFZ"; */
+"mua-Bj-sFZ.text" = "暱稱";
+
+/* Class = "UILabel"; text = "帳號："; ObjectID = "nGw-fK-TtT"; */
+"nGw-fK-TtT.text" = "帳號：";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "o4y-Is-XqN"; */
+"o4y-Is-XqN.placeholder" = "Email";
+
+/* Class = "UILabel"; text = "tags"; ObjectID = "pjO-T6-s8Y"; */
+"pjO-T6-s8Y.text" = "tags";
+
+/* Class = "UILabel"; text = "title"; ObjectID = "rL0-Dg-Y6p"; */
+"rL0-Dg-Y6p.text" = "title";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "seh-1d-pU9"; */
+"seh-1d-pU9.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "一起聊個天吧..."; ObjectID = "tsg-bf-1ei"; */
+"tsg-bf-1ei.placeholder" = "一起聊個天吧...";
+
+/* Class = "UITabBarItem"; title = "Profile"; ObjectID = "v9N-Xb-3u9"; */
+"v9N-Xb-3u9.title" = "Profile";
+
+/* Class = "UILabel"; text = "nickname"; ObjectID = "vAi-yh-vLh"; */
+"vAi-yh-vLh.text" = "nickname";
+
+/* Class = "UITextField"; placeholder = "aaa@hotmail.com"; ObjectID = "vLJ-fD-fC0"; */
+"vLJ-fD-fC0.placeholder" = "aaa@hotmail.com";
+
+/* Class = "UILabel"; text = "online_num"; ObjectID = "xmm-QR-tVz"; */
+"xmm-QR-tVz.text" = "online_num";
+
+/* Class = "UILabel"; text = "記住我"; ObjectID = "yMg-mG-JMD"; */
+"yMg-mG-JMD.text" = "記住我";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "zw6-s8-wqG"; */
+"zw6-s8-wqG.text" = "Label";
