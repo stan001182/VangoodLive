@@ -22,16 +22,15 @@ class HomeCollectionViewCell: UICollectionViewCell {
         fullScreenSize = UIScreen.main.bounds.size
         contentView.layer.cornerRadius = (fullScreenSize.width)/15
         
-//        let view = UIView()
-//        let gradientLayer = CAGradientLayer()
-//        gradientLayer.frame = contentView.bounds
-//        gradientLayer.frame.size.height = contentView.bounds.height/4
-//        gradientLayer.colors = [UIColor.black.withAlphaComponent(0.0).cgColor,
-//                                UIColor.black.withAlphaComponent(1.0).cgColor]
-//        view.layer.addSublayer(gradientLayer)
-//        contentView.addSubview(view)
-        
-//                contentView.layer.mask = gradientLayer
+        let view = UIView()
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = contentView.bounds
+        gradientLayer.frame.size.height = contentView.bounds.height/4
+        gradientLayer.frame.origin.y = contentView.frame.maxY/1.3
+        gradientLayer.colors = [UIColor.black.withAlphaComponent(0.0).cgColor,
+                                UIColor.black.withAlphaComponent(0.5).cgColor]
+        view.layer.addSublayer(gradientLayer)
+        contentView.addSubview(view)
         
     }
     

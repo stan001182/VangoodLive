@@ -37,6 +37,7 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
             width: CGFloat(fullScreenSize.width)/2 - 27.0,
             height: CGFloat(fullScreenSize.width)/2 - 27.0)
         
+        
         //設定lottie animate
         animationView = .init(name: "player2")
         animationView!.frame = view.bounds
@@ -79,7 +80,7 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return myLive.count
     }

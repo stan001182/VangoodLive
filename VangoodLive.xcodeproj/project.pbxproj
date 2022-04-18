@@ -27,7 +27,6 @@
 		E333588C27F1DD3C00CAEEB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E333588A27F1DD3C00CAEEB1 /* Main.storyboard */; };
 		E333588E27F1DD3C00CAEEB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E333588D27F1DD3C00CAEEB1 /* Assets.xcassets */; };
 		E333589127F1DD3C00CAEEB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E333588F27F1DD3C00CAEEB1 /* LaunchScreen.storyboard */; };
-		E333589B27F1E08400CAEEB1 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E333589A27F1E08400CAEEB1 /* HomeCollectionViewController.swift */; };
 		E333589D27F1E0AA00CAEEB1 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E333589C27F1E0AA00CAEEB1 /* HomeCollectionViewCell.swift */; };
 		E3BC3D7D27F4AA440066C046 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3BC3D7C27F4AA440066C046 /* GoogleService-Info.plist */; };
 		E3E8F9A027F33CB20047A841 /* RegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8F99F27F33CB20047A841 /* RegistViewController.swift */; };
@@ -60,7 +59,6 @@
 		E333588D27F1DD3C00CAEEB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E333589027F1DD3C00CAEEB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E333589227F1DD3C00CAEEB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E333589A27F1E08400CAEEB1 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
 		E333589C27F1E0AA00CAEEB1 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		E3B931541D56CDF3F189902C /* Pods-VangoodLive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VangoodLive.release.xcconfig"; path = "Target Support Files/Pods-VangoodLive/Pods-VangoodLive.release.xcconfig"; sourceTree = "<group>"; };
 		E3BC3D7C27F4AA440066C046 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -130,7 +128,6 @@
 				E3BC3D7E27F4AB720066C046 /* Resource */,
 				E333589227F1DD3C00CAEEB1 /* Info.plist */,
 				E3BC3D7C27F4AA440066C046 /* GoogleService-Info.plist */,
-				E333589A27F1E08400CAEEB1 /* HomeCollectionViewController.swift */,
 			);
 			path = VangoodLive;
 			sourceTree = "<group>";
@@ -332,7 +329,6 @@
 				4B95140A2803266D00CFAF8D /* ChatCell.swift in Sources */,
 				4B92DF2627F771AD000975A3 /* ProfileViewController.swift in Sources */,
 				4BDD00DE27F40CB80092B12A /* TabBarViewController.swift in Sources */,
-				E333589B27F1E08400CAEEB1 /* HomeCollectionViewController.swift in Sources */,
 				E333588927F1DD3C00CAEEB1 /* LiveRoomViewController.swift in Sources */,
 				E333588527F1DD3C00CAEEB1 /* AppDelegate.swift in Sources */,
 				E333588727F1DD3C00CAEEB1 /* SceneDelegate.swift in Sources */,
@@ -492,6 +488,7 @@
 				DEVELOPMENT_TEAM = XD4MD88FJR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VangoodLive/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Stan_Tseng;
 				INFOPLIST_KEY_NSCameraUsageDescription = "是否允許此APP使用相機?";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "是否允許此APP使用相簿?";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "是否允許此APP使用相簿?";
@@ -501,6 +498,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -526,6 +524,7 @@
 				DEVELOPMENT_TEAM = XD4MD88FJR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VangoodLive/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Stan_Tseng;
 				INFOPLIST_KEY_NSCameraUsageDescription = "是否允許此APP使用相機?";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "是否允許此APP使用相簿?";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "是否允許此APP使用相簿?";
@@ -535,6 +534,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

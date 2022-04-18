@@ -255,13 +255,11 @@ class RegistViewController: UIViewController,UIImagePickerControllerDelegate, UI
 // MARK: - keyboard監聽
 extension RegistViewController {
     func addKeyboardObserver() {
-        // 因為selector寫法只要指定方法名稱即可，參數則是已經定義好的NSNotification物件，所以不指定參數的寫法「#selector(keyboardWillShow)」也可以
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @objc func keyboardWillShow(notification: Notification) {
-        // 能取得鍵盤高度就讓view上移鍵盤高度，否則上移view的1/3高度
         if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRect = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRect.height
@@ -272,11 +270,9 @@ extension RegistViewController {
     }
     
     @objc func keyboardWillHide(notification: Notification) {
-        // 讓view回復原位
         view.frame.origin.y = 0
     }
     
-    // 當畫面消失時取消監控鍵盤開闔狀態
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)

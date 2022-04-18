@@ -19,6 +19,7 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
     @IBOutlet weak var sendMessageBtn: UIButton!
     @IBOutlet weak var moveView: UIView!
     
+    @IBOutlet weak var changeHight: NSLayoutConstraint!
     var player : AVPlayer?
     var animationView: AnimationView?
     var user:User?
@@ -26,7 +27,8 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
     var webSocketTask:URLSessionWebSocketTask?
     var receiveResult = [String]()
     
-    private lazy var layer : AVPlayerLayer = {
+    
+    private lazy var layer : AVPlayerLayer? = {
         let remoteURL = NSURL(fileURLWithPath: Bundle.main.path(forResource: "hime3", ofType: "mp4")!
         )
         self.player = AVPlayer(url: remoteURL as URL)
@@ -55,10 +57,13 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
         // 設定 Cell 的高度能自我調整
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
+        // 將tableview倒置
+        tableView.transform = CGAffineTransform(rotationAngle: .pi)
+ 
         
         //將player壓到下層
         let playerView = UIView()
-        playerView.layer.addSublayer(layer)
+        playerView.layer.addSublayer(layer!)
         self.view.addSubview(playerView)
         self.view.sendSubviewToBack(playerView)
         
@@ -85,14 +90,14 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
         //加入觀察器當播放完畢再重新播放一次
         NotificationCenter.default.addObserver(self,selector: #selector(playerItemDidReachEnd(notification:)),name: .AVPlayerItemDidPlayToEndTime,object:player?.currentItem)
         
-        //加入對話框漸層塗層
+        //加入對話框漸層遮罩
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = self.tableView.bounds
-        gradientLayer.frame.size.height = (self.tableView.bounds.height)/3
-        gradientLayer.colors = [UIColor.clear.withAlphaComponent(0.1).cgColor,
-                                UIColor.clear.withAlphaComponent(1.0).cgColor]
+        gradientLayer.frame.size.height = self.tableView.bounds.height
+        gradientLayer.colors = [UIColor.clear.withAlphaComponent(1.0).cgColor,UIColor.clear.withAlphaComponent(1.0).cgColor,UIColor.clear.withAlphaComponent(0.0).cgColor]
+        gradientLayer.locations = [0.0, 0.85, 1.0]
         tableView.layer.mask = gradientLayer
-        
+    
         guard Auth.auth().currentUser != nil else {
             nickname = "訪客"
             return
@@ -111,20 +116,24 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        layer.frame = view.bounds
+        layer!.frame = view.bounds
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         webSocketDisConnect()
-        
+        //移除player和avplayerlayer避免記憶體持續增加
         if self.player != nil{
             self.player!.pause()
             self.player = nil
             print("影片停止播放")
         }
-        //移除player觀察器
+        if self.layer != nil{
+        layer?.removeFromSuperlayer()
+        layer = nil
+        }
+        //移除player監聽器
         NotificationCenter.default.removeObserver(self, name: .AVPlayerItemDidPlayToEndTime, object: nil)
     }
     
@@ -177,7 +186,9 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath) as! ChatCell
-        let resultArray = receiveResult[indexPath.row]
+        cell.contentView.transform = CGAffineTransform(rotationAngle: .pi)
+        let index = receiveResult.count - 1 - indexPath.row
+        let resultArray = receiveResult[index]
         cell.messageTV.text = resultArray
         
         return cell
@@ -203,15 +214,18 @@ extension LiveRoomViewController {
             
             let keyboardRect = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRect.height
-            moveView.frame.origin.y = -(keyboardHeight-37)
-        } else {
-            moveView.frame.origin.y = -view.frame.height / 3
+            //判斷鍵盤高度是否大於changeHight的constrain
+            if keyboardHeight > changeHight.constant+35 {
+                print("移動前\(changeHight.constant)")
+                changeHight.constant += (keyboardHeight-35)
+                print("移動後\(changeHight.constant)")
+            }
         }
     }
     
     @objc func keyboardWillHide(notification: Notification) {
-        moveView.frame.origin.y = 0
-        
+        changeHight.constant = 0
+        print("返回0")
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -268,7 +282,7 @@ extension LiveRoomViewController: URLSessionWebSocketDelegate {
             case .success(let message):
                 switch message {
                 case .string(let text):
-                    print("Received string: \(text)")
+                    print("收到的 string: \(text)")
                     
                     
                     let jsonString = """
@@ -281,6 +295,7 @@ extension LiveRoomViewController: URLSessionWebSocketDelegate {
                         do {
                             let jsonDecoder = JSONDecoder()
                             let myJSONModel = try jsonDecoder.decode(DataStruct.MyJSONModel.self, from: jsonData)
+                            //判斷事件
                             if myJSONModel.event == "undefined"{
                             }
                             if myJSONModel.event == "default_message"{
@@ -314,9 +329,9 @@ extension LiveRoomViewController: URLSessionWebSocketDelegate {
             self.tableView.reloadData()
             print("開始接收資料")
             //有新留言時捲到底部
-            if self.receiveResult.count > 0 {
-                self.tableView.scrollToRow(at: IndexPath(row: self.receiveResult.count - 1, section: 0), at: .bottom, animated: true)
-            }
+//            if self.receiveResult.count > 0 {
+//                self.tableView.scrollToRow(at: IndexPath(row: self.receiveResult.count - 1, section: 0), at: .bottom, animated: true)
+//            }
             
             self.receive()
         }

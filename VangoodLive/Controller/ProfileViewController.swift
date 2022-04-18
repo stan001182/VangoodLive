@@ -139,7 +139,7 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
         }
     }
     
-   private func uploadToFirbaseStorage(referance_root:StorageReference,data:Data,file_name:String){
+    private func uploadToFirbaseStorage(referance_root:StorageReference,data:Data,file_name:String){
         let reference_i_save:StorageReference = referance_root.child(file_name)
         reference_i_save.putData(data,metadata: nil){
             (info,error)

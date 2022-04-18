@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIInterfaceOrientation</key>
+	<string>UIInterfaceOrientationPortrait</string>
 	<key>NSCameraUsageDescription</key>
 	<string>是否允許此APP使用相機?</string>
 	<key>NSPhotoLibraryUsageDescription</key>
@@ -10,10 +12,6 @@
 	<string>是否允許此APP使用相簿?</string>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
-	<key>UISupportedInterfaceOrientations~iphone</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

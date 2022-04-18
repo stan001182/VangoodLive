@@ -41,11 +41,10 @@ class ProfileLogInViewController: UIViewController {
             return
         }
         //如果用push的話會有返回按鈕，而且點tabbar會再跳回登入頁面，所以用currentContext，present的方式。
-        let vc = storyboard?.instantiateViewController(withIdentifier: "ProfileViewController")
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController")
         vc?.modalPresentationStyle = .currentContext
         self.present(vc!, animated: false, completion: nil)
     }
-    
     
     @IBAction func didEndOnExitFirst(_ sender: UITextField) {
     }
