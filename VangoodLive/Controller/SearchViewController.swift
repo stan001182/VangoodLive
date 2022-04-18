@@ -168,7 +168,7 @@ class SearchViewController: UIViewController,UICollectionViewDelegate,UICollecti
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader , withReuseIdentifier: "CollectionReusableViewForHeader", for: IndexPath) as! CollectionReusableViewForHeader
         
         if searching {
-            //            collectionView.frame.origin.y = 96
+            collectionView.frame.origin.y = 96
             if IndexPath.section == 0{
                 headerView.frame.size.height = 30
                 headerView.header.text = "搜尋結果"
