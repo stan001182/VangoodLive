@@ -226,7 +226,7 @@
                                 <rect key="frame" x="0.0" y="487" width="414" height="409"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cqY-nS-nEA">
-                                        <rect key="frame" x="348" y="323" width="46" height="46"/>
+                                        <rect key="frame" x="358" y="323" width="46" height="46"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="cqY-nS-nEA" secondAttribute="height" multiplier="1:1" id="hZz-PG-3aB"/>
@@ -285,7 +285,7 @@
                                         </connections>
                                     </tableView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" allowsEditingTextAttributes="YES" placeholder="一起聊個天吧..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tsg-bf-1ei">
-                                        <rect key="frame" x="20" y="323" width="318" height="46"/>
+                                        <rect key="frame" x="10" y="323" width="338" height="46"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -306,12 +306,12 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="cqY-nS-nEA" firstAttribute="leading" secondItem="tsg-bf-1ei" secondAttribute="trailing" constant="10" id="7s4-Vz-ypJ"/>
-                                    <constraint firstItem="tsg-bf-1ei" firstAttribute="leading" secondItem="mOx-Br-XO6" secondAttribute="leading" constant="20" id="B9C-Iq-pTG"/>
+                                    <constraint firstItem="tsg-bf-1ei" firstAttribute="leading" secondItem="mOx-Br-XO6" secondAttribute="leading" constant="10" id="B9C-Iq-pTG"/>
                                     <constraint firstItem="Y9E-uB-P7r" firstAttribute="top" secondItem="mOx-Br-XO6" secondAttribute="top" constant="20" id="CQ9-d1-8qA"/>
                                     <constraint firstAttribute="trailing" secondItem="Y9E-uB-P7r" secondAttribute="trailing" constant="10" id="Ccp-IO-WRl"/>
                                     <constraint firstItem="tsg-bf-1ei" firstAttribute="centerY" secondItem="cqY-nS-nEA" secondAttribute="centerY" id="E0y-5a-xMJ"/>
                                     <constraint firstItem="tsg-bf-1ei" firstAttribute="height" secondItem="cqY-nS-nEA" secondAttribute="height" id="Fxw-L8-mDj"/>
-                                    <constraint firstAttribute="trailing" secondItem="cqY-nS-nEA" secondAttribute="trailing" constant="20" id="NIC-Pe-coq"/>
+                                    <constraint firstAttribute="trailing" secondItem="cqY-nS-nEA" secondAttribute="trailing" constant="10" id="NIC-Pe-coq"/>
                                     <constraint firstItem="Y9E-uB-P7r" firstAttribute="leading" secondItem="mOx-Br-XO6" secondAttribute="leading" constant="10" id="cD1-tn-aH0"/>
                                     <constraint firstAttribute="bottom" secondItem="cqY-nS-nEA" secondAttribute="bottom" constant="40" id="wfA-uQ-VN8"/>
                                     <constraint firstItem="tsg-bf-1ei" firstAttribute="top" secondItem="Y9E-uB-P7r" secondAttribute="bottom" constant="5" id="zTD-3c-WtH"/>
@@ -392,7 +392,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m8R-pT-i6E">
-                                <rect key="frame" x="348" y="44" width="46" height="46"/>
+                                <rect key="frame" x="358" y="44" width="46" height="46"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="gWi-UC-ikV"/>
@@ -414,7 +414,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="p4m-bJ-5B7" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="75:224" id="3dx-Hn-k3k"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="m8R-pT-i6E" secondAttribute="trailing" constant="20" id="8KK-fp-1Qj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="m8R-pT-i6E" secondAttribute="trailing" constant="10" id="8KK-fp-1Qj"/>
                             <constraint firstItem="mOx-Br-XO6" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="AM7-ih-I5e"/>
                             <constraint firstItem="p4m-bJ-5B7" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.8" id="Fmu-Il-Jg8"/>
                             <constraint firstAttribute="bottom" secondItem="mOx-Br-XO6" secondAttribute="bottom" id="HqC-PK-gd0"/>
