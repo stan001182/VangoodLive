@@ -74,19 +74,12 @@ class RegistViewController: UIViewController,UIImagePickerControllerDelegate, UI
         
         animationView?.isHidden = false
         animationView!.play()
-        account.text?.contains(" ")
         
         if account.text == "" || account.text?.trimmingCharacters(in: .whitespaces) == "" || password.text == "" || password.text?.trimmingCharacters(in: .whitespaces) == "" {
             
             alertview(title: "錯誤！帳號或密碼空白", message: "請輸入帳號密碼")
             self.animationView!.stop()
             self.animationView?.isHidden = true
-            
-        }else if account.text?.contains(" ") != nil  ||  password.text?.contains(" ") != nil {
-            alertview(title: "錯誤！帳號密碼不能含空白字元", message: "請輸入帳號密碼")
-            self.animationView!.stop()
-            self.animationView?.isHidden = true
-            
         }else if password.text!.count < 6 || password.text!.count > 12{
             
             alertview(title: "錯誤！密碼不在6-12碼內", message: "請重新輸入密碼")

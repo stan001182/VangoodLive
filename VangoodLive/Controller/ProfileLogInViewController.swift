@@ -138,15 +138,9 @@ class ProfileLogInViewController: UIViewController {
         
         if account.text == "" || account.text?.trimmingCharacters(in: .whitespaces) == "" || password.text == "" || password.text?.trimmingCharacters(in: .whitespaces) == "" {
             alertview(title: "錯誤！帳號或密碼空白", message: "請輸入帳號密碼")
-        }else if account.text?.contains(" ") != nil  ||  password.text?.contains(" ") != nil {
-            alertview(title: "錯誤！帳號密碼不能含空白字元", message: "請輸入帳號密碼")
-            
         }else if password.text!.count < 6 || password.text!.count > 12{
             
             alertview(title: "錯誤！密碼不在6-12碼內", message: "請重新輸入密碼")
-        }else if account.text!.count < 4 || account.text!.count > 20{
-            
-            alertview(title: "錯誤！帳號不在4-20碼內", message: "請重新輸入帳號")
         }else if account.text!.count < 4 || account.text!.count > 20{
             
             alertview(title: "錯誤！帳號不在4-20碼內", message: "請重新輸入帳號")
