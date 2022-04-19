@@ -173,6 +173,15 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
             alertview(title: "尚未輸入文字", message: "與主播聊聊天吧！")
             return
         }
+        
+        let punctuation = " ~!#$%^&*()_-+=?<>.—，。/\\|《》？;:：'‘；“,"
+            for i in punctuation {
+                    if self.messageTF.text?.contains(i) == true {
+                        alertview(title: "帳號或密碼包含特殊字元", message: "請重新輸入")
+                        messageTF.text = ""
+                        return
+                    }
+                }
         sendMessage()
         messageTF.text = ""
     }
