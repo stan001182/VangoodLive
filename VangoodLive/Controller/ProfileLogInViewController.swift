@@ -136,7 +136,7 @@ class ProfileLogInViewController: UIViewController {
     
     @IBAction func signInBtn(_ sender: UIButton) {
         
-        if account.text == "" || account.text?.trimmingCharacters(in: .whitespaces) == "" || password.text == "" || password.text?.trimmingCharacters(in: .whitespaces) == "" {
+        if account.text == "" || password.text == ""  {
             alertview(title: "錯誤！帳號或密碼空白", message: "請輸入帳號密碼")
         }else if password.text!.count < 6 || password.text!.count > 12{
             

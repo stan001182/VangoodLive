@@ -75,7 +75,7 @@ class RegistViewController: UIViewController,UIImagePickerControllerDelegate, UI
         animationView?.isHidden = false
         animationView!.play()
         
-        if account.text == "" || account.text?.trimmingCharacters(in: .whitespaces) == "" || password.text == "" || password.text?.trimmingCharacters(in: .whitespaces) == "" {
+        if account.text == "" || password.text == "" {
             
             alertview(title: "錯誤！帳號或密碼空白", message: "請輸入帳號密碼")
             self.animationView!.stop()
