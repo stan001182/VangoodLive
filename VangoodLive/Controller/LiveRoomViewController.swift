@@ -91,13 +91,17 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
         NotificationCenter.default.addObserver(self,selector: #selector(playerItemDidReachEnd(notification:)),name: .AVPlayerItemDidPlayToEndTime,object:player?.currentItem)
         
         //加入對話框漸層遮罩
+//        let layerview = UIView()
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = self.tableView.bounds
         gradientLayer.frame.size.height = self.tableView.bounds.height
-        gradientLayer.colors = [UIColor.clear.withAlphaComponent(1.0).cgColor,UIColor.clear.withAlphaComponent(1.0).cgColor,UIColor.clear.withAlphaComponent(0.0).cgColor]
-        gradientLayer.locations = [0.0, 0.85, 1.0]
+        gradientLayer.colors = [UIColor.clear.withAlphaComponent(1.0).cgColor,UIColor.clear.withAlphaComponent(0.2).cgColor]
+        gradientLayer.locations = [0.5, 1.0]
+        
+//        layerview.layer.mask = gradientLayer
+//        tableView.addSubview(layerview)
         tableView.layer.mask = gradientLayer
-    
+        
         guard Auth.auth().currentUser != nil else {
             nickname = "訪客"
             return
@@ -185,6 +189,14 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        //加入對話框漸層遮罩
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.tableView.bounds
+        gradientLayer.frame.size.height = self.tableView.bounds.height
+        gradientLayer.colors = [UIColor.clear.withAlphaComponent(1.0).cgColor,UIColor.clear.withAlphaComponent(0.0).cgColor]
+        gradientLayer.locations = [0.7, 1.0]
+        tableView.layer.mask = gradientLayer
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath) as! ChatCell
         cell.contentView.transform = CGAffineTransform(rotationAngle: .pi)
         let index = receiveResult.count - 1 - indexPath.row
@@ -249,7 +261,7 @@ extension LiveRoomViewController: URLSessionWebSocketDelegate {
     
     private func webSocketConnect(){
         //nickname是中文的話不符合url協議，需要先編碼，否則會連不到伺服器
-        let url1 = "wss://lott-dev.lottcube.asia/ws/chat/chat:app_test?nickname=\(nickname)"
+        let url1 = "wss://client-dev.lottcube.asia/ws/chat/chat:app_test?nickname=\(nickname)"
         let url2 = url1.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         print("轉碼後2：\(url2!)")
         

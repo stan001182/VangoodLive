@@ -135,12 +135,20 @@ class ProfileLogInViewController: UIViewController {
     
     
     @IBAction func signInBtn(_ sender: UIButton) {
-        
-        if self.account.text == "" || self.password.text == "" {
+        let punctuation = "~!#$%^&*()_-+=?<>.—，。/\\|《》？;:：'‘；“,"
+        for i in punctuation {
+            if self.account.text?.contains(i) == true || self.password.text?.contains(i) == true {
+                alertview(title: "錯誤！帳號或密碼包含特殊字元", message: "請重新輸入")
+            }
+        }
+        if account.text == "" || password.text == "" {
             alertview(title: "錯誤！帳號或密碼空白", message: "請輸入帳號密碼")
         }else if password.text!.count < 6 || password.text!.count > 12{
             
             alertview(title: "錯誤！密碼不在6-12碼內", message: "請重新輸入密碼")
+        }else if account.text!.count < 4 || account.text!.count > 20{
+            
+            alertview(title: "錯誤！帳號不在4-20碼內", message: "請重新輸入帳號")
         }else if account.text!.count < 4 || account.text!.count > 20{
             
             alertview(title: "錯誤！帳號不在4-20碼內", message: "請重新輸入帳號")
