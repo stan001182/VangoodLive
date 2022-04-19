@@ -75,16 +75,8 @@ class RegistViewController: UIViewController,UIImagePickerControllerDelegate, UI
         animationView?.isHidden = false
         animationView!.play()
         
-        let punctuation = "~!#$%^&*()_-+=?<>.—，。/\\|《》？;:：'‘；“,"
-        for i in punctuation {
-            if self.account.text?.contains(i) == true || self.password.text?.contains(i) == true {
-                alertview(title: "錯誤！帳號或密碼包含特殊字元", message: "請重新輸入")
-                animationView?.isHidden = true
-                animationView!.stop()
-            }
-        }
         
-        if account.text == "" || password.text == "" {
+        if account.text == "" || account.text?.trimmingCharacters(in: .whitespaces) == "" || password.text == "" || password.text?.trimmingCharacters(in: .whitespaces) == "" {
             
             alertview(title: "錯誤！帳號或密碼空白", message: "請輸入帳號密碼")
             self.animationView!.stop()

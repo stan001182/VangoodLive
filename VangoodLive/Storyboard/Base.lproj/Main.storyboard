@@ -89,7 +89,7 @@
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nickname" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="8tt-4L-qOD">
                                                     <rect key="frame" x="9" y="153" width="75" height="22"/>
-                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22" id="w1v-JB-heJ"/>
                                                     </constraints>
@@ -561,7 +561,7 @@
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nickname" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="vAi-yh-vLh">
                                                     <rect key="frame" x="9" y="153" width="75" height="22"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22" id="pZw-fJ-GZt"/>
                                                     </constraints>
@@ -662,16 +662,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="topPic" translatesAutoresizingMaskIntoConstraints="NO" id="kA2-kf-21Z">
-                                <rect key="frame" x="82" y="144" width="250" height="250"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="topPic" translatesAutoresizingMaskIntoConstraints="NO" id="kA2-kf-21Z">
+                                <rect key="frame" x="132" y="194" width="150" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="0zk-Gr-Xu8"/>
-                                    <constraint firstAttribute="width" constant="250" id="es1-tL-X28"/>
+                                    <constraint firstAttribute="height" constant="150" id="0zk-Gr-Xu8"/>
+                                    <constraint firstAttribute="width" constant="150" id="es1-tL-X28"/>
                                     <constraint firstAttribute="width" secondItem="kA2-kf-21Z" secondAttribute="height" multiplier="1:1" id="s1l-uX-JC4"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rKT-Ye-Y2f">
-                                <rect key="frame" x="268.5" y="353" width="47" height="41"/>
+                                <rect key="frame" x="221" y="303" width="47" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="rKT-Ye-Y2f" secondAttribute="height" multiplier="55:48" id="Vd0-qa-DsT"/>
                                 </constraints>
@@ -869,7 +869,7 @@
                                             <constraint firstAttribute="height" constant="40" id="DmQ-vO-4ti"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
                                         <connections>
                                             <action selector="didEndOnExitFirst:" destination="1jG-va-9j6" eventType="editingDidEndOnExit" id="f20-Jz-I9J"/>
                                         </connections>
@@ -917,7 +917,7 @@
                                             <constraint firstAttribute="height" constant="40" id="iMz-ZO-5TF"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES"/>
                                         <connections>
                                             <action selector="didEndOnExitSecond:" destination="1jG-va-9j6" eventType="editingDidEndOnExit" id="ea6-Xd-hIl"/>
                                         </connections>
@@ -1169,7 +1169,7 @@
                                             <constraint firstAttribute="height" constant="40" id="1Pw-cI-nH3"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
                                         <connections>
                                             <action selector="didEndOnExitSecond:" destination="a47-nL-tRT" eventType="editingDidEndOnExit" id="SrT-Vt-vJE"/>
                                         </connections>
@@ -1217,7 +1217,7 @@
                                             <constraint firstAttribute="height" constant="40" id="vzg-d3-YnJ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES"/>
                                         <connections>
                                             <action selector="didEndOnExitThird:" destination="a47-nL-tRT" eventType="editingDidEndOnExit" id="zVc-8d-I95"/>
                                         </connections>
@@ -1279,15 +1279,15 @@
                                     <action selector="signInBtn:" destination="1jG-va-9j6" eventType="touchUpInside" id="hTe-uZ-epM"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="picPersonal" translatesAutoresizingMaskIntoConstraints="NO" id="1qd-7u-dcV">
-                                <rect key="frame" x="82" y="144" width="250" height="250"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="picPersonal" translatesAutoresizingMaskIntoConstraints="NO" id="1qd-7u-dcV">
+                                <rect key="frame" x="132" y="194" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="1qd-7u-dcV" secondAttribute="height" multiplier="1:1" id="Bku-PN-t1y"/>
-                                    <constraint firstAttribute="width" constant="250" id="scw-AD-0Bc"/>
+                                    <constraint firstAttribute="width" constant="150" id="scw-AD-0Bc"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3YS-I0-aeD">
-                                <rect key="frame" x="268.5" y="353" width="47" height="41"/>
+                                <rect key="frame" x="221" y="303" width="47" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="3YS-I0-aeD" secondAttribute="height" multiplier="55:48" id="cdy-Pp-Kj3"/>
                                 </constraints>
@@ -1378,7 +1378,7 @@
                                             <constraint firstAttribute="height" constant="40" id="1Pi-RW-eQh"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
                                         <connections>
                                             <action selector="didEndOnExit:" destination="RDo-JZ-Ss0" eventType="editingDidEndOnExit" id="AP1-J7-jsR"/>
                                         </connections>
