@@ -132,7 +132,7 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
         if Auth.auth().currentUser != nil {
             do {
                 try Auth.auth().signOut()
-                dismiss(animated: false, completion: nil)
+                dismiss(animated: true, completion: nil)
             } catch let error as NSError {
                 print(error.localizedDescription)
             }

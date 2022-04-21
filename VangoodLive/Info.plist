@@ -10,8 +10,6 @@
 	<string>是否允許此APP使用相簿?</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>是否允許此APP使用相簿?</string>
-	<key>UIUserInterfaceStyle</key>
-	<string>Light</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

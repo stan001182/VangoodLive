@@ -50,7 +50,7 @@ class ProfileLogInViewController: UIViewController {
     }
     @IBAction func didEndOnExitSecond(_ sender: UITextField) {
     }
-    
+        
     @IBAction func registBtn(_ sender: UIButton) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

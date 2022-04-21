@@ -11,7 +11,7 @@ import FirebaseStorage
 import FirebaseStorageUI
 import Lottie
 
-class HomeViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
+class HomeViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UIWindowSceneDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var topView: UIView!
@@ -75,6 +75,18 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
         nickname.text = displayName
     }
     
+    @IBAction func sceneModeBtn(_ sender: UIButton) {
+        darkOrLight()
+        if sender.titleLabel?.text == "Dark Mode"{
+            sender.setTitle("Light Mode", for: .normal)
+            sender.backgroundColor = .white
+        }else{
+            sender.setTitle("Dark Mode", for: .normal)
+            sender.backgroundColor = .black
+        }
+    }
+    
+    
     // MARK: UICollectionViewDataSource
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -126,6 +138,20 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
             
         }
         
+    }
+    
+    func darkOrLight() {
+        let keyWindow = UIApplication.shared.connectedScenes
+                .filter({$0.activationState == .foregroundActive})
+                .map({$0 as? UIWindowScene})
+                .compactMap({$0})
+                .first?.windows
+                .filter({$0.isKeyWindow}).first
+        if keyWindow?.overrideUserInterfaceStyle == .light{
+        keyWindow?.overrideUserInterfaceStyle = .dark
+        }else{
+            keyWindow?.overrideUserInterfaceStyle = .light
+        }
     }
     
 }

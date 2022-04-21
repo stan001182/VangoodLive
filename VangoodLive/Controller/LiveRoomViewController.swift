@@ -83,6 +83,7 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
         super.viewWillAppear(animated)
         
         addKeyboardObserver()
+        gradientLayer()
         
         player?.play()
         print("開始播放")
@@ -90,17 +91,6 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
         //加入觀察器當播放完畢再重新播放一次
         NotificationCenter.default.addObserver(self,selector: #selector(playerItemDidReachEnd(notification:)),name: .AVPlayerItemDidPlayToEndTime,object:player?.currentItem)
         
-        //加入對話框漸層遮罩
-//        let layerview = UIView()
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = self.tableView.bounds
-        gradientLayer.frame.size.height = self.tableView.bounds.height
-        gradientLayer.colors = [UIColor.clear.withAlphaComponent(1.0).cgColor,UIColor.clear.withAlphaComponent(0.2).cgColor]
-        gradientLayer.locations = [0.5, 1.0]
-        
-//        layerview.layer.mask = gradientLayer
-//        tableView.addSubview(layerview)
-        tableView.layer.mask = gradientLayer
         
         guard Auth.auth().currentUser != nil else {
             nickname = "訪客"
@@ -174,12 +164,18 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
             return
         }
         
-        let punctuation = " ~!#$%^&*()_-+=?<>.—，。/\\|《》？;:：'‘；“,"
-            for i in punctuation {
-                    if self.messageTF.text?.contains(i) == true {
-                        return
-                    }
-                }
+//        guard messageTF.text!.count <= 200 else {
+//            self.view.endEditing(true)
+//            alertview(title: "字數太多", message: "請勿洗版")
+//            return
+//        }
+        
+//        let punctuation = " ~!#$%^&*()_-+=?<>.—，。/\\|《》？;:：'‘；“,"
+//            for i in punctuation {
+//                    if self.messageTF.text?.contains(i) == true {
+//                        return
+//                    }
+//                }
         sendMessage()
         messageTF.text = ""
     }
@@ -196,13 +192,7 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        //加入對話框漸層遮罩
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = self.tableView.bounds
-        gradientLayer.frame.size.height = self.tableView.bounds.height
-        gradientLayer.colors = [UIColor.clear.withAlphaComponent(1.0).cgColor,UIColor.clear.withAlphaComponent(0.0).cgColor]
-        gradientLayer.locations = [0.7, 1.0]
-        tableView.layer.mask = gradientLayer
+        gradientLayer()
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath) as! ChatCell
         cell.contentView.transform = CGAffineTransform(rotationAngle: .pi)
@@ -211,6 +201,16 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
         cell.messageTV.text = resultArray
         
         return cell
+    }
+    
+    func gradientLayer(){
+        //加入對話框漸層遮罩
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.tableView.bounds
+        gradientLayer.frame.size.height = self.tableView.bounds.height
+        gradientLayer.colors = [UIColor.clear.withAlphaComponent(1.0).cgColor,UIColor.clear.withAlphaComponent(0.0).cgColor]
+        gradientLayer.locations = [0.7, 1.0]
+        tableView.layer.mask = gradientLayer
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

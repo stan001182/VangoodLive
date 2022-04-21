@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -167,25 +168,47 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="hmD-uT-Xvf">
-                                        <rect key="frame" x="48" y="0.0" width="334" height="40"/>
+                                        <rect key="frame" x="48" y="0.0" width="250" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="hmD-uT-Xvf" secondAttribute="height" multiplier="167:20" id="GOI-By-aSG"/>
+                                            <constraint firstAttribute="width" secondItem="hmD-uT-Xvf" secondAttribute="height" multiplier="25:4" id="EUZ-fk-IVP"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k7W-DE-s7q">
+                                        <rect key="frame" x="299" y="0.0" width="75" height="40"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="k7W-DE-s7q" secondAttribute="height" multiplier="15:8" id="Rst-rL-LNI"/>
+                                        </constraints>
+                                        <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Dark Mode"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="CornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="sceneModeBtn:" destination="aSS-mN-FJ6" eventType="touchUpInside" id="SR9-BS-hKx"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="hmD-uT-Xvf" firstAttribute="width" secondItem="UFD-TV-SO8" secondAttribute="height" multiplier="167:20" id="0hE-eY-Wfu"/>
+                                    <constraint firstItem="k7W-DE-s7q" firstAttribute="top" secondItem="UFD-TV-SO8" secondAttribute="top" id="1UW-md-1QR"/>
                                     <constraint firstAttribute="bottom" secondItem="EU4-Em-tU2" secondAttribute="bottom" id="5NZ-nh-EaT"/>
-                                    <constraint firstItem="hmD-uT-Xvf" firstAttribute="leading" secondItem="EU4-Em-tU2" secondAttribute="trailing" constant="8" symbolic="YES" id="94i-Q7-Yvb"/>
                                     <constraint firstItem="EU4-Em-tU2" firstAttribute="top" secondItem="UFD-TV-SO8" secondAttribute="top" id="9wl-ew-Hma"/>
                                     <constraint firstAttribute="height" constant="40" id="MOo-GT-pPO"/>
                                     <constraint firstItem="EU4-Em-tU2" firstAttribute="width" secondItem="UFD-TV-SO8" secondAttribute="height" multiplier="1:1" id="OBr-5i-fow"/>
+                                    <constraint firstItem="hmD-uT-Xvf" firstAttribute="leading" secondItem="EU4-Em-tU2" secondAttribute="trailing" constant="8" symbolic="YES" id="UQ4-CL-glH"/>
+                                    <constraint firstItem="hmD-uT-Xvf" firstAttribute="width" secondItem="UFD-TV-SO8" secondAttribute="height" multiplier="25:4" id="YIc-nD-DsW"/>
                                     <constraint firstItem="EU4-Em-tU2" firstAttribute="leading" secondItem="UFD-TV-SO8" secondAttribute="leading" id="eU0-4z-YkF"/>
-                                    <constraint firstItem="hmD-uT-Xvf" firstAttribute="top" secondItem="UFD-TV-SO8" secondAttribute="top" id="ljC-aK-eUs"/>
+                                    <constraint firstAttribute="trailing" secondItem="k7W-DE-s7q" secondAttribute="trailing" id="lQo-WF-ogp"/>
+                                    <constraint firstItem="k7W-DE-s7q" firstAttribute="width" secondItem="UFD-TV-SO8" secondAttribute="height" multiplier="15:8" id="onS-CN-0mP"/>
+                                    <constraint firstItem="k7W-DE-s7q" firstAttribute="top" secondItem="hmD-uT-Xvf" secondAttribute="bottom" constant="-40" id="qoV-pq-ebu"/>
+                                    <constraint firstItem="hmD-uT-Xvf" firstAttribute="top" secondItem="UFD-TV-SO8" secondAttribute="top" id="xxf-Ko-0g3"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -447,7 +470,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hpb-uJ-4Tr">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="SceneMode"/>
                         <color key="selectedImageTintColor" red="0.89116489889999995" green="0.55368107560000002" blue="0.2391093373" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <tabBarAppearance key="scrollEdgeAppearance"/>
                     </tabBar>
@@ -1432,13 +1455,16 @@
         <image name="eyeblock" width="128" height="128"/>
         <image name="iconPersonal" width="8" height="10"/>
         <image name="logout-1" width="23" height="19"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="person.fill" catalog="system" width="32" height="32"/>
         <image name="picPersonal" width="112" height="112"/>
         <image name="send" width="22" height="22"/>
         <image name="tabHome" width="27" height="27"/>
         <image name="tabPersonal" width="27" height="27"/>
         <image name="tabSearch" width="27" height="27"/>
         <image name="topPic" width="30" height="30"/>
+        <namedColor name="SceneMode">
+            <color red="0.66666668650000005" green="0.66666668650000005" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
