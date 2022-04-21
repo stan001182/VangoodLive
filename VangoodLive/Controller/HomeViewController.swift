@@ -29,7 +29,7 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
         //設定collection view
         fullScreenSize = UIScreen.main.bounds.size
         print(fullScreenSize.width)
-        collectionView.backgroundColor = UIColor.white
+        collectionView.backgroundColor = .init(named: "BackgroundColor")
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.sectionInset = UIEdgeInsets(top: 10, left: 18, bottom: 0, right: 18);
         layout.minimumLineSpacing = 18
@@ -141,12 +141,7 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     }
     
     func darkOrLight() {
-        let keyWindow = UIApplication.shared.connectedScenes
-                .filter({$0.activationState == .foregroundActive})
-                .map({$0 as? UIWindowScene})
-                .compactMap({$0})
-                .first?.windows
-                .filter({$0.isKeyWindow}).first
+        let keyWindow = self.view.window!.windowScene?.keyWindow
         if keyWindow?.overrideUserInterfaceStyle == .light{
         keyWindow?.overrideUserInterfaceStyle = .dark
         }else{

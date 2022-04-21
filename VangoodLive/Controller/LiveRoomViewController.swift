@@ -85,6 +85,14 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
         addKeyboardObserver()
         gradientLayer()
         
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.tableView.bounds
+        gradientLayer.frame.size.height = self.tableView.bounds.height
+        gradientLayer.colors = [UIColor.clear.withAlphaComponent(1.0).cgColor,UIColor.clear.withAlphaComponent(0.0).cgColor]
+        gradientLayer.locations = [0.7, 1.0]
+        tableView.layer.mask = gradientLayer
+        
+        
         player?.play()
         print("開始播放")
         player?.actionAtItemEnd = .none
@@ -193,6 +201,8 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         gradientLayer()
+        
+        
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath) as! ChatCell
         cell.contentView.transform = CGAffineTransform(rotationAngle: .pi)

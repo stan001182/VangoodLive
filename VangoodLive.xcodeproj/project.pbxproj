@@ -47,6 +47,8 @@
 		4B9513E528001A3D00CFAF8D /* CollectionReusableViewForHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReusableViewForHeader.swift; sourceTree = "<group>"; };
 		4B9513E72800A2C200CFAF8D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4B9514092803266D00CFAF8D /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
+		4BA134BE28114772007966A7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		4BA134BF28114773007966A7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		4BDD00DD27F40CB80092B12A /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		4BDD010127F4528D0092B12A /* ProfileLogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLogInViewController.swift; sourceTree = "<group>"; };
 		7E78C9CFB7EE60E3DEA4976D /* Pods-VangoodLive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VangoodLive.debug.xcconfig"; path = "Target Support Files/Pods-VangoodLive/Pods-VangoodLive.debug.xcconfig"; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				en,
 				Base,
 				"zh-Hant",
+				"zh-Hans",
 			);
 			mainGroup = E333587827F1DD3C00CAEEB1;
 			productRefGroup = E333588227F1DD3C00CAEEB1 /* Products */;
@@ -343,6 +346,7 @@
 			children = (
 				E333588B27F1DD3C00CAEEB1 /* Base */,
 				4B9513DA27FEB58E00CFAF8D /* zh-Hant */,
+				4BA134BE28114772007966A7 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -352,6 +356,7 @@
 			children = (
 				E333589027F1DD3C00CAEEB1 /* Base */,
 				4B9513DB27FEB58E00CFAF8D /* zh-Hant */,
+				4BA134BF28114773007966A7 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

@@ -36,7 +36,7 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         if item.tag == 0{
             self.img1.transform = CGAffineTransform(rotationAngle: 360).scaledBy(x: 4, y: 4).translatedBy(x: -10, y: 0)
-            self.img1.backgroundColor = .black
+            self.img1.backgroundColor = .init(named: "TabBarAnimateColor")
             self.img1.layer.cornerRadius = 13.5
             
             UIView.animate(withDuration: 0.5) {
@@ -47,7 +47,7 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         }
         if item.tag == 1{
             self.img2.transform = CGAffineTransform(rotationAngle: 360).scaledBy(x: 4, y: 4).translatedBy(x: -10, y: 0)
-            self.img2.backgroundColor = .black
+            self.img2.backgroundColor = .init(named: "TabBarAnimateColor")
             self.img2.layer.cornerRadius = 13.5
             
             UIView.animate(withDuration: 0.5) {
@@ -58,7 +58,7 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         }
         if item.tag == 2{
             self.img3.transform = CGAffineTransform(rotationAngle: 360).scaledBy(x: 4, y: 4).translatedBy(x: -10, y: 0)
-            self.img3.backgroundColor = .black
+            self.img3.backgroundColor = .init(named: "TabBarAnimateColor")
             self.img3.layer.cornerRadius = 13.5
             
             UIView.animate(withDuration: 0.5) {

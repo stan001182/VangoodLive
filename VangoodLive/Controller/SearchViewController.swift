@@ -28,7 +28,7 @@ class SearchViewController: UIViewController,UICollectionViewDelegate,UICollecti
         super.viewDidLoad()
         
         fullScreenSize = UIScreen.main.bounds.size
-        collectionView.backgroundColor = UIColor.white
+        collectionView.backgroundColor = .init(named: "BackgroundColor")
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.sectionInset = UIEdgeInsets(top: 0, left: 18, bottom: 0, right: 18);
         layout.minimumLineSpacing = 18

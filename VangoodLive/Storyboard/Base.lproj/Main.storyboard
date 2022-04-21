@@ -20,7 +20,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ACm-6e-qNx">
                                 <rect key="frame" x="0.0" y="92" width="414" height="721"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="BackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="18" id="1gN-Nm-p1b">
                                     <size key="itemSize" width="180" height="180"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -53,7 +53,7 @@
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="online_num" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="xmm-QR-tVz">
                                                             <rect key="frame" x="22" y="0.0" width="50" height="22"/>
                                                             <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="20"/>
-                                                            <color key="textColor" systemColor="systemBackgroundColor"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -80,7 +80,7 @@
                                                         <constraint firstAttribute="height" constant="22" id="599-g2-H7J"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <color key="textColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -95,7 +95,7 @@
                                                         <constraint firstAttribute="height" constant="22" id="w1v-JB-heJ"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <color key="textColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -110,7 +110,7 @@
                                                         <constraint firstAttribute="height" constant="22" id="Ezj-yr-h9B"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <color key="textColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -182,9 +182,10 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="k7W-DE-s7q" secondAttribute="height" multiplier="15:8" id="Rst-rL-LNI"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="tintColor" systemColor="systemBackgroundColor"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Dark Mode"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Dark Mode"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="CornerRadius">
                                                 <integer key="value" value="20"/>
@@ -195,7 +196,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="BackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="k7W-DE-s7q" firstAttribute="top" secondItem="UFD-TV-SO8" secondAttribute="top" id="1UW-md-1QR"/>
                                     <constraint firstAttribute="bottom" secondItem="EU4-Em-tU2" secondAttribute="bottom" id="5NZ-nh-EaT"/>
@@ -213,7 +214,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iQG-AM-8w9"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="iQG-AM-8w9" firstAttribute="trailing" secondItem="UFD-TV-SO8" secondAttribute="trailing" constant="20" id="2Hh-Sk-3nA"/>
                             <constraint firstItem="ACm-6e-qNx" firstAttribute="top" secondItem="UFD-TV-SO8" secondAttribute="bottom" constant="8" symbolic="YES" id="Hnt-R0-vKz"/>
@@ -354,7 +355,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jbP-sB-Bl4">
                                         <rect key="frame" x="160" y="191" width="120" height="40"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="BlackGray"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="SiC-dY-Okn"/>
                                         </constraints>
@@ -374,7 +375,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Oz-wq-WNn">
                                         <rect key="frame" x="20" y="191" width="120" height="40"/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="GrayDeepGray"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Y2f-Uu-cNd"/>
                                         </constraints>
@@ -470,7 +471,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hpb-uJ-4Tr">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" name="SceneMode"/>
+                        <color key="backgroundColor" name="TabSceneModeColor"/>
                         <color key="selectedImageTintColor" red="0.89116489889999995" green="0.55368107560000002" blue="0.2391093373" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <tabBarAppearance key="scrollEdgeAppearance"/>
                     </tabBar>
@@ -495,7 +496,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="collectionView" dataMode="prototypes" id="G9a-qb-wHk">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="BackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="18" id="X0r-tv-7Tu">
                                     <size key="itemSize" width="180" height="180"/>
                                     <size key="headerReferenceSize" width="50" height="1"/>
@@ -531,7 +532,7 @@
                                                                 <constraint firstAttribute="height" constant="22" id="wyB-aG-Rsd"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="20"/>
-                                                            <color key="textColor" systemColor="systemBackgroundColor"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -559,7 +560,7 @@
                                                         <constraint firstAttribute="height" constant="22" id="Lgt-1e-UuL"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <color key="textColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -574,7 +575,7 @@
                                                         <constraint firstAttribute="height" constant="22" id="nHU-9C-7gm"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <color key="textColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -589,7 +590,7 @@
                                                         <constraint firstAttribute="height" constant="22" id="pZw-fJ-GZt"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <color key="textColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -657,6 +658,7 @@
                             <searchBar contentMode="redraw" fixedFrame="YES" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iUf-vz-uDm">
                                 <rect key="frame" x="0.0" y="37" width="414" height="51"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="barTintColor" name="BackgroundColor"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <scopeButtonTitles>
                                     <string>Title</string>
@@ -665,7 +667,7 @@
                             </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="p5m-La-n2a"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" tag="1" title="Search" image="tabSearch" id="Ll9-O1-X5h"/>
                     <connections>
@@ -742,7 +744,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="更改">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" systemColor="labelColor"/>
                                         </state>
                                         <connections>
                                             <action selector="changeNameBtn:" destination="YjE-yr-TuZ" eventType="touchUpInside" id="An9-tC-aVh"/>
@@ -834,7 +836,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CYc-7t-Ncf"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Uxl-hn-eXe" firstAttribute="centerX" secondItem="VbZ-ST-9Aq" secondAttribute="centerX" id="2y2-AZ-9WW"/>
                             <constraint firstItem="0Bn-AX-tWS" firstAttribute="top" secondItem="S92-t1-f9j" secondAttribute="bottom" constant="20" id="7wX-5H-g9B"/>
@@ -959,7 +961,6 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="2wb-gy-fvC"/>
                                     <constraint firstItem="7UQ-Hi-ZhG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ucx-ZQ-HYw" secondAttribute="trailing" id="ED4-zC-fh6"/>
@@ -1061,7 +1062,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1zE-Yj-5gp"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="BcL-Lr-Jvx" firstAttribute="centerX" secondItem="AXK-8S-X8j" secondAttribute="centerX" id="15r-m5-R99"/>
                             <constraint firstItem="BXs-lU-Sxv" firstAttribute="centerX" secondItem="AXK-8S-X8j" secondAttribute="centerX" id="16O-Gc-cat"/>
@@ -1259,7 +1260,6 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="ULT-EW-0yq" firstAttribute="width" secondItem="Ydt-Jz-mZN" secondAttribute="width" multiplier="0.216667" id="2Ua-is-SNs"/>
                                     <constraint firstItem="6hD-sn-brn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ULT-EW-0yq" secondAttribute="trailing" id="9Nw-0j-mtO"/>
@@ -1322,7 +1322,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5Ct-4i-zbK"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Ydt-Jz-mZN" firstAttribute="width" secondItem="5RK-q8-8Vv" secondAttribute="width" multiplier="0.724638" id="15a-dX-s7j"/>
                             <constraint firstItem="oNc-Wf-bKk" firstAttribute="width" secondItem="5RK-q8-8Vv" secondAttribute="width" multiplier="0.724638" id="1RS-Nd-71Z"/>
@@ -1428,7 +1428,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kzl-I2-bm8"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="o33-lP-9ry" firstAttribute="width" secondItem="vou-ky-q4E" secondAttribute="width" multiplier="0.724638" id="2Ya-Fc-zrN"/>
                             <constraint firstItem="o33-lP-9ry" firstAttribute="leading" secondItem="CkW-gb-3Ip" secondAttribute="leading" id="3s2-bW-Zv4"/>
@@ -1462,8 +1462,17 @@
         <image name="tabPersonal" width="27" height="27"/>
         <image name="tabSearch" width="27" height="27"/>
         <image name="topPic" width="30" height="30"/>
-        <namedColor name="SceneMode">
-            <color red="0.66666668650000005" green="0.66666668650000005" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        <namedColor name="BackgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BlackGray">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GrayDeepGray">
+            <color red="0.66699999570846558" green="0.66699999570846558" blue="0.66699999570846558" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="TabSceneModeColor">
+            <color red="0.66699999570846558" green="0.66699999570846558" blue="0.66699999570846558" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
