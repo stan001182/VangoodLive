@@ -60,18 +60,18 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
     }
     
     @IBAction func changeNameBtn(_ sender: UIButton) {
-        let controller = UIAlertController(title: "更改暱稱？", message: "請輸入新的暱稱", preferredStyle: .alert)
+        let controller = UIAlertController(title: NSLocalizedString("title6", comment: ""), message: NSLocalizedString("message6", comment: ""), preferredStyle: .alert)
         controller.addTextField { textField in
-            textField.placeholder = "暱稱"
+            textField.placeholder = NSLocalizedString("nickname", comment: "")
         }
         
-        let okAction = UIAlertAction(title: "確定", style: .default) { [unowned controller] _ in
+        let okAction = UIAlertAction(title: NSLocalizedString("okay", comment: ""), style: .default) { [unowned controller] _ in
             guard Auth.auth().currentUser != nil else {
                 return
             }
             let user = Auth.auth().currentUser
             guard controller.textFields?[0].text != "" else{
-                self.alertview(title: "欄位空白", message: "請輸入您的暱稱！")
+                self.alertview(title: NSLocalizedString("title7", comment: ""), message: NSLocalizedString("message7", comment: ""))
                 return
             }
             let nickname = controller.textFields?[0].text
@@ -81,10 +81,10 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
             changeRequest?.commitChanges { error in
                 print("修改後暱稱：\((user?.displayName)!)")
             }
-            self.alertview(title: "修改成功", message: "歡迎你！\(nickname ?? "")")
+            self.alertview(title: NSLocalizedString("title8", comment: ""), message: "\(NSLocalizedString("title8", comment: ""))\(nickname ?? "")")
             
         }
-        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: .cancel, handler: nil)
         controller.addAction(okAction)
         controller.addAction(cancelAction)
         present(controller, animated: true, completion: nil)
@@ -92,12 +92,12 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
     
     
     @IBAction func choosePicBtn(_ sender: UIButton) {
-        let controller = UIAlertController(title: "更換您的頭像?", message: "請選擇拍照或從相簿選取", preferredStyle: .actionSheet)
-        let names = ["拍照","從相簿選取"]
+        let controller = UIAlertController(title: NSLocalizedString("title9", comment: ""), message: NSLocalizedString("message9", comment: ""), preferredStyle: .actionSheet)
+        let names = [NSLocalizedString("camera", comment: ""),NSLocalizedString("photolibrary", comment: "")]
         for _name in names {
             let action = UIAlertAction(title: _name, style: .default) { action in
                 switch _name {
-                case "拍照":
+                case NSLocalizedString("camera", comment: ""):
                     guard UIImagePickerController.isSourceTypeAvailable(.camera)
                     else
                     {
@@ -109,7 +109,7 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
                     imagePicker.delegate = self
                     self.present(imagePicker, animated: true, completion: nil)
                     
-                case "從相簿選取":
+                case NSLocalizedString("photolibrary", comment: ""):
                     var configuration = PHPickerConfiguration(photoLibrary: .shared())
                     configuration.filter = PHPickerFilter.images
                     configuration.preferredAssetRepresentationMode = .current
@@ -123,7 +123,7 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
             }
             controller.addAction(action)
         }
-        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: .cancel, handler: nil)
         controller.addAction(cancelAction)
         present(controller, animated: true, completion: nil)
     }
@@ -175,7 +175,7 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
         let image = info[.originalImage] as! UIImage
         headShot.image = image
         picker.dismiss(animated: true) {
-            self.alertview(title: "修改成功", message: "頭像已更新")
+            self.alertview(title: NSLocalizedString("title10", comment: ""), message: NSLocalizedString("message10", comment: ""))
         }
         
         guard Auth.auth().currentUser != nil else {
@@ -210,7 +210,7 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
                     DispatchQueue.main.async {
                         self.headShot.image = UIImage(data: photoData)
                         picker.dismiss(animated: true) {
-                            self.alertview(title: "修改成功", message: "頭像已更新")
+                            self.alertview(title: NSLocalizedString("title10", comment: ""), message: NSLocalizedString("message10", comment: ""))
                         }
                         
                         guard Auth.auth().currentUser != nil else {

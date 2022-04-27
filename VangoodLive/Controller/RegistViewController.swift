@@ -27,8 +27,7 @@ class RegistViewController: UIViewController,UIImagePickerControllerDelegate, UI
         super.viewDidLoad()
         
         hideKeyboardWhenTappedAround()
-        
-        password.placeholder = "請輸入6-12位字母或數字"
+    
         headShot.clipsToBounds = true
         headShot.layer.cornerRadius = headShot.frame.height/2
         
@@ -77,18 +76,18 @@ class RegistViewController: UIViewController,UIImagePickerControllerDelegate, UI
         
         if account.text == "" || password.text == "" {
             
-            alertview(title: "錯誤！帳號或密碼空白", message: "請輸入帳號密碼")
+            alertview(title: NSLocalizedString("title2", comment: ""), message: NSLocalizedString("message2", comment: ""))
             self.animationView!.stop()
             self.animationView?.isHidden = true
         }else if password.text!.count < 6 || password.text!.count > 12{
             
-            alertview(title: "錯誤！密碼不在6-12碼內", message: "請重新輸入密碼")
+            alertview(title: NSLocalizedString("title3", comment: ""), message: NSLocalizedString("message3", comment: ""))
             self.animationView!.stop()
             self.animationView?.isHidden = true
             
         }else if account.text!.count < 4 || account.text!.count > 20{
             
-            alertview(title: "錯誤！帳號不在4-20碼內", message: "請重新輸入帳號")
+            alertview(title: NSLocalizedString("title4", comment: ""), message: NSLocalizedString("message4", comment: ""))
             self.animationView!.stop()
             self.animationView?.isHidden = true
         }else {
@@ -118,9 +117,9 @@ class RegistViewController: UIViewController,UIImagePickerControllerDelegate, UI
                     print("註冊成功")
                     print((result?.user.email)!,(result?.user.uid)!)
                     
-                    let alertController = UIAlertController(title: "歡迎！！", message: "註冊成功", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: NSLocalizedString("title14", comment: ""), message: NSLocalizedString("message14", comment: ""), preferredStyle: .alert)
                     
-                    let defaultAction = UIAlertAction(title: "確定", style: .cancel) { UIAlertAction in
+                    let defaultAction = UIAlertAction(title: NSLocalizedString("okay", comment: ""), style: .cancel) { UIAlertAction in
                         
                         self.dismiss(animated: false)
                         print("該換頁囉")
@@ -135,9 +134,9 @@ class RegistViewController: UIViewController,UIImagePickerControllerDelegate, UI
                 } else {
                     self.animationView!.stop()
                     self.animationView?.isHidden = true
-                    let alertController = UIAlertController(title: "錯誤", message: error?.localizedDescription, preferredStyle: .alert)
+                    let alertController = UIAlertController(title: NSLocalizedString("title12", comment: ""), message: error?.localizedDescription, preferredStyle: .alert)
                     
-                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    let defaultAction = UIAlertAction(title: NSLocalizedString("okay", comment: ""), style: .cancel, handler: nil)
                     alertController.addAction(defaultAction)
                     
                     self.present(alertController, animated: true, completion: nil)
@@ -148,12 +147,12 @@ class RegistViewController: UIViewController,UIImagePickerControllerDelegate, UI
     
     
     @IBAction func choosePicBtn(_ sender: UIButton) {
-        let controller = UIAlertController(title: "更換您的頭像?", message: "請選擇拍照或從相簿選取", preferredStyle: .actionSheet)
-        let names = ["拍照", "從相簿選取"]
+        let controller = UIAlertController(title: NSLocalizedString("title9", comment: ""), message: NSLocalizedString("message9", comment: ""), preferredStyle: .actionSheet)
+        let names = [NSLocalizedString("camera", comment: ""), NSLocalizedString("photolibrary", comment: "")]
         for _name in names {
             let action = UIAlertAction(title: _name, style: .default) { action in
                 switch _name {
-                case "拍照":
+                case NSLocalizedString("camera", comment: ""):
                     guard UIImagePickerController.isSourceTypeAvailable(.camera)
                     else
                     {
@@ -164,7 +163,7 @@ class RegistViewController: UIViewController,UIImagePickerControllerDelegate, UI
                     imagePicker.sourceType = .camera
                     imagePicker.delegate = self
                     self.present(imagePicker, animated: true, completion: nil)
-                case "從相簿選取":
+                case NSLocalizedString("photolibrary", comment: ""):
                     var configuration = PHPickerConfiguration(photoLibrary: .shared())
                     configuration.filter = PHPickerFilter.images
                     configuration.preferredAssetRepresentationMode = .current
@@ -178,7 +177,7 @@ class RegistViewController: UIViewController,UIImagePickerControllerDelegate, UI
             }
             controller.addAction(action)
         }
-        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: .cancel, handler: nil)
         controller.addAction(cancelAction)
         present(controller, animated: true, completion: nil)
     }
@@ -236,7 +235,7 @@ class RegistViewController: UIViewController,UIImagePickerControllerDelegate, UI
     
     func alertview(title:String,message:String){
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        let alertAction = UIAlertAction(title: NSLocalizedString("okay", comment: ""), style: .cancel, handler: nil)
         alertController.addAction(alertAction)
         self.present(alertController, animated: true, completion: nil)
     }

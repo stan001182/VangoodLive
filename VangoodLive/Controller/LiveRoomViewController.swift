@@ -9,6 +9,7 @@ import UIKit
 import AVFoundation
 import Lottie
 import FirebaseAuth
+import YouTubeiOSPlayerHelper
 
 class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
@@ -18,29 +19,50 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
     @IBOutlet weak var exitBtn: UIButton!
     @IBOutlet weak var sendMessageBtn: UIButton!
     @IBOutlet weak var moveView: UIView!
+    @IBOutlet weak var stackview: UIStackView!
     
     @IBOutlet weak var changeHight: NSLayoutConstraint!
     var player : AVPlayer?
     var animationView: AnimationView?
     var user:User?
-    var nickname = "訪客"
+    var nickname = NSLocalizedString("visitor", comment: "")
     var webSocketTask:URLSessionWebSocketTask?
     var receiveResult = [String]()
     
+    var videoResult :[videoInfo]?
+    var channelInfo :channelInfo?
+    var videoID = ["gFfcEN_7kQ","vN-VsPKHW1k","Vx1zPxKTmTw","eexmdt3Q8yk","yD0RC6l7UMk"]
+    lazy var videoPlayerView = YTPlayerView()
     
-    private lazy var layer : AVPlayerLayer? = {
-        let remoteURL = NSURL(fileURLWithPath: Bundle.main.path(forResource: "hime3", ofType: "mp4")!
-        )
-        self.player = AVPlayer(url: remoteURL as URL)
-        player?.audiovisualBackgroundPlaybackPolicy = .continuesIfPossible
-        let layer = AVPlayerLayer(player: self.player)
-        layer.frame = self.view.layer.bounds
-        layer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-        return layer
-    }()
+    
+//    private lazy var layer : AVPlayerLayer? = {
+//        let remoteURL = NSURL(fileURLWithPath: Bundle.main.path(forResource: "hime3", ofType: "mp4")!
+//        )
+//        self.player = AVPlayer(url: remoteURL as URL)
+//        player?.audiovisualBackgroundPlaybackPolicy = .continuesIfPossible
+//        let layer = AVPlayerLayer(player: self.player)
+//        layer.frame = self.view.layer.bounds
+//        layer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+//        return layer
+//    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        fetchChanelInfo()
+        fetchPlayListInfo()
+        
+        
+        let parameter = ["playsinline" : "1", "modestbranding" : "0"]
+        videoPlayerView.delegate = self
+        videoPlayerView.frame = self.view.bounds
+//        videoPlayerView.frame.size.height = self.view.frame.self.height/2
+        videoPlayerView.isUserInteractionEnabled = false
+        self.view.addSubview(videoPlayerView)
+        self.view.sendSubviewToBack(videoPlayerView)
+        videoPlayerView.load(withVideoId: videoID.randomElement()!, playerVars: parameter)
+        videoPlayerView.playVideo()
+        
         
         messageTF.delegate = self
         tableView.allowsSelection = false
@@ -62,10 +84,10 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
  
         
         //將player壓到下層
-        let playerView = UIView()
-        playerView.layer.addSublayer(layer!)
-        self.view.addSubview(playerView)
-        self.view.sendSubviewToBack(playerView)
+//        let playerView = UIView()
+//        playerView.layer.addSublayer(layer!)
+//        self.view.addSubview(playerView)
+//        self.view.sendSubviewToBack(playerView)
         
         guard Auth.auth().currentUser != nil else {
             webSocketConnect()
@@ -85,58 +107,70 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
         addKeyboardObserver()
         gradientLayer()
         
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = self.tableView.bounds
-        gradientLayer.frame.size.height = self.tableView.bounds.height
-        gradientLayer.colors = [UIColor.clear.withAlphaComponent(1.0).cgColor,UIColor.clear.withAlphaComponent(0.0).cgColor]
-        gradientLayer.locations = [0.7, 1.0]
-        tableView.layer.mask = gradientLayer
-        
-        
-        player?.play()
-        print("開始播放")
-        player?.actionAtItemEnd = .none
-        //加入觀察器當播放完畢再重新播放一次
-        NotificationCenter.default.addObserver(self,selector: #selector(playerItemDidReachEnd(notification:)),name: .AVPlayerItemDidPlayToEndTime,object:player?.currentItem)
+//        player?.play()
+//        print("開始播放")
+//        player?.actionAtItemEnd = .none
+//        //加入觀察器當播放完畢再重新播放一次
+//        NotificationCenter.default.addObserver(self,selector: #selector(playerItemDidReachEnd(notification:)),name: .AVPlayerItemDidPlayToEndTime,object:player?.currentItem)
         
         
         guard Auth.auth().currentUser != nil else {
-            nickname = "訪客"
+            nickname = NSLocalizedString("visitor", comment: "")
             return
         }
         user = Auth.auth().currentUser
         nickname = user?.displayName ?? ""
         
-    }
-    
-    @objc func playerItemDidReachEnd(notification: Notification) {
-        if let playerItem = notification.object as? AVPlayerItem {
-            playerItem.seek(to: CMTime.zero, completionHandler: nil)
-            print("重新播放")
+        
+        let YourString = "西瓜,奇異果,蘋果,香蕉"
+        let Components = YourString.components(separatedBy: ",")
+        
+        
+        for text in Components{
+
+
+        let button1 = UIButton()
+                button1.setTitle(text, for: .normal)
+//        let button2 = UIButton()
+//        button2.backgroundColor = .blue
+//            button2.setTitle("西瓜", for: .normal)
+//            button2.titleLabel?.font = UIFont.boldSystemFont(ofSize: 10)
+//
+            stackview.addArrangedSubview(button1)
+            
+        
         }
+        
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        layer!.frame = view.bounds
-    }
+//    @objc func playerItemDidReachEnd(notification: Notification) {
+//        if let playerItem = notification.object as? AVPlayerItem {
+//            playerItem.seek(to: CMTime.zero, completionHandler: nil)
+//            print("重新播放")
+//        }
+//    }
+//
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//        layer!.frame = view.bounds
+//    }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         webSocketDisConnect()
         //移除player和avplayerlayer避免記憶體持續增加
-        if self.player != nil{
-            self.player!.pause()
-            self.player = nil
-            print("影片停止播放")
-        }
-        if self.layer != nil{
-        layer?.removeFromSuperlayer()
-        layer = nil
-        }
-        //移除player監聽器
-        NotificationCenter.default.removeObserver(self, name: .AVPlayerItemDidPlayToEndTime, object: nil)
+//        if self.player != nil{
+//            self.player!.pause()
+//            self.player = nil
+//            print("影片停止播放")
+//        }
+//        if self.layer != nil{
+//        layer?.removeFromSuperlayer()
+//        layer = nil
+//        }
+//        //移除player監聽器
+//        NotificationCenter.default.removeObserver(self, name: .AVPlayerItemDidPlayToEndTime, object: nil)
     }
     
     
@@ -168,7 +202,7 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
     @IBAction func sendMessageBtn(_ sender: UIButton) {
         guard messageTF.text != "" else {
             self.view.endEditing(true)
-            alertview(title: "尚未輸入文字", message: "與主播聊聊天吧！")
+            alertview(title: NSLocalizedString("title", comment: ""), message: NSLocalizedString("message", comment: ""))
             return
         }
         
@@ -332,9 +366,9 @@ extension LiveRoomViewController: URLSessionWebSocketDelegate {
                             }
                             if myJSONModel.event == "sys_updateRoomStatus"{
                                 if myJSONModel.body!.entry_notice!.action! == "enter"{
-                                    self.receiveResult.append("\(myJSONModel.body!.entry_notice!.username!):進入直播間")
+                                    self.receiveResult.append("\(myJSONModel.body!.entry_notice!.username!):\(NSLocalizedString("into-room", comment: ""))")
                                 }else{
-                                    self.receiveResult.append("\(myJSONModel.body!.entry_notice!.username!):離開直播間")
+                                    self.receiveResult.append("\(myJSONModel.body!.entry_notice!.username!):\(NSLocalizedString("leave-room", comment: ""))")
                                 }
                             }
                             if myJSONModel.event == "admin_all_broadcast"{
@@ -387,5 +421,71 @@ extension LiveRoomViewController: URLSessionWebSocketDelegate {
             reasonString = ""
         }
         print("URLSessionWebSocketTask 關閉: code=\(closeCode), reason=\(reasonString)")
+    }
+}
+
+extension LiveRoomViewController: YTPlayerViewDelegate {
+    
+    func playerView(_ playerView: YTPlayerView, didChangeTo state: YTPlayerState) {
+        if state == .ended {
+            videoPlayerView.playVideo()
+        }
+    }
+    
+    
+    func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
+        self.videoPlayerView.playVideo()
+    }
+    
+    func fetchChanelInfo(){
+        
+        let strUrl = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=\(CommonData().channelID)&key=\(CommonData().ApiKeys)"
+        
+        if let url = URL(string: strUrl){
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                if let data = data{
+                    let decoder = JSONDecoder()
+                    do {
+                        let searchResponse = try decoder.decode(ChannelResponse.self, from: data)
+                        
+                        self.channelInfo = searchResponse.items![0]
+                        print(searchResponse.items![0])
+                        
+                    }
+                    catch  {
+                        print("channel response is invalid\(error)")
+                    }
+                }
+            }.resume()
+            
+            
+        }
+        
+    }
+    
+    
+    func fetchPlayListInfo(){
+        //  guard let uploadID = g_CommomData?.uploadID else { print("no uploadId"); return  }
+        //        guard let uploadID = uploadId else { print("no uploadId"); return  }
+        
+        let strUrl =
+        "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=\(CommonData().maxResult)&playlistId=\(CommonData().playlistID)&key=\(CommonData().ApiKeys)"
+        
+        
+        
+        if let url = URL(string: strUrl){
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                if let data = data{
+                    let decoder = JSONDecoder()
+                    do {
+                        let searchResponse = try decoder.decode(PlayListResponse.self, from: data)
+                        self.videoResult = searchResponse.items
+                    } catch  {
+                        print("playlist response is invalid\(error)")
+                    }
+                    
+                }
+            }.resume()
+        }
     }
 }

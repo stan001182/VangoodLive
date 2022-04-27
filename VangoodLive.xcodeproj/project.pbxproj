@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		056E4246BD8A6B89F3FAA572 /* Pods_VangoodLive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92212492F060D2943E7FCA11 /* Pods_VangoodLive.framework */; };
+		485CC26C2817900600A93E3B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 485CC26E2817900600A93E3B /* Localizable.strings */; };
+		48AA35302817CB3D007F2844 /* YouTubeiOSPlayerHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 48AA352F2817CB3D007F2844 /* YouTubeiOSPlayerHelper */; };
+		48AA35362817CCB1007F2844 /* YTStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AA35352817CCB1007F2844 /* YTStruct.swift */; };
+		48AA353C2817F58C007F2844 /* GiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AA353B2817F58C007F2844 /* GiftViewController.swift */; };
 		4B26CE7A280A737A0032FF2D /* hime3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E3E8F9A127F33E3E0047A841 /* hime3.mp4 */; };
 		4B92DF2427F765AA000975A3 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B92DF2327F765AA000975A3 /* ResetPasswordViewController.swift */; };
 		4B92DF2627F771AD000975A3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B92DF2527F771AD000975A3 /* ProfileViewController.swift */; };
@@ -35,12 +39,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		485CC26D2817900600A93E3B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		48AA35292817A70C007F2844 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		48AA352B2817A711007F2844 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		48AA352D2817A908007F2844 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		48AA35352817CCB1007F2844 /* YTStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTStruct.swift; sourceTree = "<group>"; };
+		48AA35372817E799007F2844 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		48AA35382817E7D3007F2844 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		48AA353A2817E7E4007F2844 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		48AA353B2817F58C007F2844 /* GiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftViewController.swift; sourceTree = "<group>"; };
 		4B92DF2327F765AA000975A3 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		4B92DF2527F771AD000975A3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4B9513D627FEA86000CFAF8D /* mail-without-burst.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "mail-without-burst.json"; sourceTree = "<group>"; };
 		4B9513D827FEAFFB00CFAF8D /* mail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mail.json; sourceTree = "<group>"; };
-		4B9513DA27FEB58E00CFAF8D /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
-		4B9513DB27FEB58E00CFAF8D /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		4B9513DF27FF3A0900CFAF8D /* player.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = player.json; sourceTree = "<group>"; };
 		4B9513E127FF3BCC00CFAF8D /* brokenheart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = brokenheart.json; sourceTree = "<group>"; };
 		4B9513E327FF425A00CFAF8D /* player2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = player2.json; sourceTree = "<group>"; };
@@ -76,6 +87,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				056E4246BD8A6B89F3FAA572 /* Pods_VangoodLive.framework in Frameworks */,
+				48AA35302817CB3D007F2844 /* YouTubeiOSPlayerHelper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +117,7 @@
 		E333587827F1DD3C00CAEEB1 = {
 			isa = PBXGroup;
 			children = (
+				485CC26E2817900600A93E3B /* Localizable.strings */,
 				E333588327F1DD3C00CAEEB1 /* VangoodLive */,
 				E333588227F1DD3C00CAEEB1 /* Products */,
 				FCC23AF2F63908592343B051 /* Pods */,
@@ -159,6 +172,7 @@
 				E333588427F1DD3C00CAEEB1 /* AppDelegate.swift */,
 				E333588627F1DD3C00CAEEB1 /* SceneDelegate.swift */,
 				E3E8F9A327F3489E0047A841 /* LiveJsonModel.swift */,
+				48AA35352817CCB1007F2844 /* YTStruct.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -184,6 +198,7 @@
 				4B92DF2527F771AD000975A3 /* ProfileViewController.swift */,
 				4B92DF2327F765AA000975A3 /* ResetPasswordViewController.swift */,
 				E3E8F99F27F33CB20047A841 /* RegistViewController.swift */,
+				48AA353B2817F58C007F2844 /* GiftViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -215,6 +230,9 @@
 			dependencies = (
 			);
 			name = VangoodLive;
+			packageProductDependencies = (
+				48AA352F2817CB3D007F2844 /* YouTubeiOSPlayerHelper */,
+			);
 			productName = VangoodLive;
 			productReference = E333588127F1DD3C00CAEEB1 /* VangoodLive.app */;
 			productType = "com.apple.product-type.application";
@@ -245,6 +263,9 @@
 				"zh-Hans",
 			);
 			mainGroup = E333587827F1DD3C00CAEEB1;
+			packageReferences = (
+				48AA352E2817CB3D007F2844 /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */,
+			);
 			productRefGroup = E333588227F1DD3C00CAEEB1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -260,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B26CE7A280A737A0032FF2D /* hime3.mp4 in Resources */,
+				485CC26C2817900600A93E3B /* Localizable.strings in Resources */,
 				4B9513E027FF3A0900CFAF8D /* player.json in Resources */,
 				4B9513D927FEAFFB00CFAF8D /* mail.json in Resources */,
 				E333589127F1DD3C00CAEEB1 /* LaunchScreen.storyboard in Resources */,
@@ -332,6 +354,8 @@
 				4B95140A2803266D00CFAF8D /* ChatCell.swift in Sources */,
 				4B92DF2627F771AD000975A3 /* ProfileViewController.swift in Sources */,
 				4BDD00DE27F40CB80092B12A /* TabBarViewController.swift in Sources */,
+				48AA35362817CCB1007F2844 /* YTStruct.swift in Sources */,
+				48AA353C2817F58C007F2844 /* GiftViewController.swift in Sources */,
 				E333588927F1DD3C00CAEEB1 /* LiveRoomViewController.swift in Sources */,
 				E333588527F1DD3C00CAEEB1 /* AppDelegate.swift in Sources */,
 				E333588727F1DD3C00CAEEB1 /* SceneDelegate.swift in Sources */,
@@ -341,12 +365,23 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		485CC26E2817900600A93E3B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				485CC26D2817900600A93E3B /* zh-Hant */,
+				48AA352D2817A908007F2844 /* zh-Hans */,
+				48AA35372817E799007F2844 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		E333588A27F1DD3C00CAEEB1 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				E333588B27F1DD3C00CAEEB1 /* Base */,
-				4B9513DA27FEB58E00CFAF8D /* zh-Hant */,
 				4BA134BE28114772007966A7 /* zh-Hans */,
+				48AA35292817A70C007F2844 /* zh-Hant */,
+				48AA35382817E7D3007F2844 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -355,8 +390,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				E333589027F1DD3C00CAEEB1 /* Base */,
-				4B9513DB27FEB58E00CFAF8D /* zh-Hant */,
 				4BA134BF28114773007966A7 /* zh-Hans */,
+				48AA352B2817A711007F2844 /* zh-Hant */,
+				48AA353A2817E7E4007F2844 /* en */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -576,6 +612,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		48AA352E2817CB3D007F2844 /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/youtube/youtube-ios-player-helper.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		48AA352F2817CB3D007F2844 /* YouTubeiOSPlayerHelper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 48AA352E2817CB3D007F2844 /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */;
+			productName = YouTubeiOSPlayerHelper;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E333587927F1DD3C00CAEEB1 /* Project object */;
 }

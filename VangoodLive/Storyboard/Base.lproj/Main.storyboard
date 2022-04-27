@@ -433,6 +433,39 @@
                                     <action selector="exitBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="znh-UE-WeZ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXr-Qh-K0s">
+                                <rect key="frame" x="358" y="98" width="46" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="送禮"/>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="0dc-1O-Zxg">
+                                <rect key="frame" x="365" y="152" width="33.5" height="124"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MH0-wE-pGI">
+                                        <rect key="frame" x="0.0" y="0.0" width="33.5" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="B"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7X-Ql-0kF">
+                                        <rect key="frame" x="0.0" y="31" width="33.5" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="B"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p78-y8-Hdd">
+                                        <rect key="frame" x="0.0" y="62" width="33.5" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="B"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ApN-Ah-u8a">
+                                        <rect key="frame" x="0.0" y="93" width="33.5" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="B"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -456,12 +489,13 @@
                         <outlet property="messageTF" destination="tsg-bf-1ei" id="RuH-FQ-ax2"/>
                         <outlet property="moveView" destination="mOx-Br-XO6" id="W92-fq-M5w"/>
                         <outlet property="sendMessageBtn" destination="cqY-nS-nEA" id="0kq-gV-aOp"/>
+                        <outlet property="stackview" destination="0dc-1O-Zxg" id="ABt-3d-q9u"/>
                         <outlet property="tableView" destination="Y9E-uB-P7r" id="2ON-ds-tzm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2898.5507246376815" y="220.98214285714286"/>
+            <point key="canvasLocation" x="2944.9275362318845" y="-115.17857142857142"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="26i-BS-WdZ">
@@ -1455,7 +1489,7 @@
         <image name="eyeblock" width="128" height="128"/>
         <image name="iconPersonal" width="8" height="10"/>
         <image name="logout-1" width="23" height="19"/>
-        <image name="person.fill" catalog="system" width="32" height="32"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="picPersonal" width="112" height="112"/>
         <image name="send" width="22" height="22"/>
         <image name="tabHome" width="27" height="27"/>
@@ -1479,6 +1513,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

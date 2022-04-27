@@ -59,12 +59,12 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
         print("home viewWillAppear")
         
         //當沒有會員時將顯示會員資料的view高度設為0
-        topViewHight.constant = Auth.auth().currentUser == nil ? 0 : 40
+        //topViewHight.constant = Auth.auth().currentUser == nil ? 0 : 40
         
         //判斷是否有會員，有的話才去firebase取得會員資料
         guard Auth.auth().currentUser != nil else {
             headShot.image = UIImage(named: "picPersonal")
-            nickname.text = "訪客(未登入)"
+            nickname.text = NSLocalizedString("visitor", comment: "")
             return
         }
         let user = Auth.auth().currentUser

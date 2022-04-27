@@ -18,6 +18,7 @@ class ResetPasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         animationView = .init(name: "mail")
         animationView!.frame = view.bounds
         animationView!.contentMode = .scaleAspectFit
@@ -40,7 +41,7 @@ class ResetPasswordViewController: UIViewController {
         animationView!.play()
         
         if self.account.text == "" {
-            alertview(title: "錯誤！", message: "請輸入帳號信箱.")
+            alertview(title: NSLocalizedString("title11", comment: ""), message: NSLocalizedString("message11", comment: ""))
             self.animationView!.stop()
             self.animationView?.isHidden = true
         }else{
@@ -50,14 +51,14 @@ class ResetPasswordViewController: UIViewController {
                 var message = ""
                 
                 if error != nil {
-                    title = "錯誤!"
-                    message = ("無此會員或信箱格式錯誤，請重新輸入。\(error!.localizedDescription)")
+                    title = NSLocalizedString("title12", comment: "")
+                    message = ("\(NSLocalizedString("title12", comment: ""))\(error!.localizedDescription)")
                     self.animationView!.stop()
                     self.animationView?.isHidden = true
                     self.account.text = ""
                 } else {
-                    title = "成功!"
-                    message = "密碼重設驗證信已發送."
+                    title = NSLocalizedString("title13", comment: "")
+                    message = NSLocalizedString("message13", comment: "")
                     self.animationView!.stop()
                     self.animationView?.isHidden = true
                     self.account.text = ""
@@ -69,7 +70,7 @@ class ResetPasswordViewController: UIViewController {
     
     func alertview(title:String,message:String){
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        let alertAction = UIAlertAction(title: NSLocalizedString("okay", comment: ""), style: .cancel, handler: nil)
         alertController.addAction(alertAction)
         self.present(alertController, animated: true, completion: nil)
     }

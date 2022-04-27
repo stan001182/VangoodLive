@@ -21,7 +21,7 @@
 "BcL-Lr-Jvx.configuration.title" = "登入";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "BcL-Lr-Jvx"; */
-"BcL-Lr-Jvx.normalTitle" = "Button";
+"BcL-Lr-Jvx.normalTitle" = "登入";
 
 /* Class = "UITextField"; placeholder = "Email(請輸入4-20位字母或數字)"; ObjectID = "Bca-4U-TZ1"; */
 "Bca-4U-TZ1.placeholder" = "Email(请输入4-20位字母或数字)";
@@ -105,7 +105,7 @@
 "eXw-5a-y1j.title" = "Profile";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "hmD-uT-Xvf"; */
-"hmD-uT-Xvf.text" = "Label";
+"hmD-uT-Xvf.text" = "访客(未登入)";
 
 /* Class = "UISearchBar"; iUf-vz-uDm.scopeButtonTitles[0] = "Title"; ObjectID = "iUf-vz-uDm"; */
 "iUf-vz-uDm.scopeButtonTitles[0]" = "Title";
@@ -123,7 +123,7 @@
 "k7W-DE-s7q.configuration.title" = "Dark Mode";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "k7W-DE-s7q"; */
-"k7W-DE-s7q.normalTitle" = "Button";
+"k7W-DE-s7q.normalTitle" = "Dark Mode";
 
 /* Class = "UILabel"; text = "tags"; ObjectID = "kHY-hI-T8k"; */
 "kHY-hI-T8k.text" = "tags";

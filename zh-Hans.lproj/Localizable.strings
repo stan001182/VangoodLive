@@ -1,0 +1,46 @@
+/*
+  Localizable.strings
+  VangoodLive
+
+  Created by Stan_Tseng on 2022/4/26.
+  
+*/
+"title" = "尚未输入文字";
+"message" = "与主播聊聊天吧！";
+"visitor" = "访客";
+"into-room" = "进入直播间";
+"leave-room" = "离开直播间";
+"search-result" = "搜寻结果";
+"popular-result" = "热门直播";
+"title2" = "错误！帐号或密码空白";
+"message2" = "请输入帐号密码";
+"title3" = "错误！密码不在6-12码内";
+"message3" = "请重新输入密码";
+"title4" = "错误！帐号不在4-20码内";
+"message4" = "请重新输入帐号";
+"title5" = "错误！";
+"message5" = "帐号或密码错误";
+"title6" = "更改昵称？";
+"message6" = "请输入新的昵称";
+"nickname" = "昵称";
+"okay" = "确定";
+"title7" = "栏位空白";
+"message7" = "请输入您的昵称！";
+"title8" = "修改成功";
+"message8" = "欢迎你！";
+"cancel" = "取消";
+"title9" = "更换您的头像?";
+"message9" = "请选择拍照或从相簿选取";
+"camera" = "拍照";
+"photolibrary" = "从相簿选取";
+"title10" = "修改成功";
+"message10" = "头像已更新";
+"title11" = "错误！";
+"message11" = "输入帐号信箱";
+"title12" = "错误！";
+"message12" = "无此会员或信箱格式错误，请重新输入";
+"title13" = "成功!";
+"message13" = "密码重设验证信已发送";
+"title14" = "欢迎！！";
+"message14" = "注册成功";
+

@@ -171,10 +171,10 @@ class SearchViewController: UIViewController,UICollectionViewDelegate,UICollecti
             collectionView.frame.origin.y = 96
             if IndexPath.section == 0{
                 headerView.frame.size.height = 30
-                headerView.header.text = "搜尋結果"
+                headerView.header.text = NSLocalizedString("search-result", comment: "")
             }else{
                 headerView.frame.size.height = 30
-                headerView.header.text = "熱門直播"
+                headerView.header.text = NSLocalizedString("popular-result", comment: "")
             }
         }else{
             collectionView.frame.origin.y = 56
@@ -183,7 +183,7 @@ class SearchViewController: UIViewController,UICollectionViewDelegate,UICollecti
                 headerView.header.text = ""
             }else{
                 headerView.frame.size.height = 30
-                headerView.header.text = "熱門直播"
+                headerView.header.text = NSLocalizedString("popular-result", comment: "")
             }
         }
         return headerView

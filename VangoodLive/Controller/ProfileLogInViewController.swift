@@ -137,13 +137,13 @@ class ProfileLogInViewController: UIViewController {
     @IBAction func signInBtn(_ sender: UIButton) {
         
         if account.text == "" || password.text == ""  {
-            alertview(title: "錯誤！帳號或密碼空白", message: "請輸入帳號密碼")
+            alertview(title: NSLocalizedString("title2", comment: ""), message: NSLocalizedString("message2", comment: ""))
         }else if password.text!.count < 6 || password.text!.count > 12{
             
-            alertview(title: "錯誤！密碼不在6-12碼內", message: "請重新輸入密碼")
+            alertview(title: NSLocalizedString("title3", comment: ""), message: NSLocalizedString("message3", comment: ""))
         }else if account.text!.count < 4 || account.text!.count > 20{
             
-            alertview(title: "錯誤！帳號不在4-20碼內", message: "請重新輸入帳號")
+            alertview(title: NSLocalizedString("title4", comment: ""), message: NSLocalizedString("message4", comment: ""))
         }else {
             
             Auth.auth().signIn(withEmail: self.account.text!, password: self.password.text!) { (result, error) in
@@ -152,7 +152,7 @@ class ProfileLogInViewController: UIViewController {
                     self.tabBarController!.selectedIndex = 0
                     
                 }else{
-                    self.alertview(title: "錯誤", message: "帳號或密碼錯誤,\(error!.localizedDescription)")
+                    self.alertview(title: NSLocalizedString("title5", comment: ""), message: "\(NSLocalizedString("title5", comment: "")),\(error!.localizedDescription)")
                 }
             }
         }
