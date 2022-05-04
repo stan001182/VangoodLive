@@ -41,13 +41,9 @@ class SearchViewController: UIViewController,UICollectionViewDelegate,UICollecti
                                     UICollectionView.elementKindSectionHeader,
                                 withReuseIdentifier: "Header")
         
-        animationView = .init(name: "player2")
-        animationView!.frame = view.bounds
-        animationView!.contentMode = .scaleAspectFit
-        animationView!.animationSpeed = 2
+        animationView = AnimateViewModel().makeAnimationView(initName: "player2", speed: 2)
         view.addSubview(animationView!)
-        animationView?.isHidden = true
-        
+       
         searchBar.delegate = self
         let btn = searchBar.value(forKey: "cancelButton") as! UIButton
         btn.tintColor = .orange
@@ -170,10 +166,10 @@ class SearchViewController: UIViewController,UICollectionViewDelegate,UICollecti
         if searching {
             collectionView.frame.origin.y = 96
             if IndexPath.section == 0{
-                headerView.frame.size.height = 30
+                headerView.frame.size.height = 40
                 headerView.header.text = NSLocalizedString("search-result", comment: "")
             }else{
-                headerView.frame.size.height = 30
+                headerView.frame.size.height = 40
                 headerView.header.text = NSLocalizedString("popular-result", comment: "")
             }
         }else{
@@ -182,7 +178,7 @@ class SearchViewController: UIViewController,UICollectionViewDelegate,UICollecti
                 headerView.frame.size.height = 0
                 headerView.header.text = ""
             }else{
-                headerView.frame.size.height = 30
+                headerView.frame.size.height = 40
                 headerView.header.text = NSLocalizedString("popular-result", comment: "")
             }
         }
@@ -191,14 +187,33 @@ class SearchViewController: UIViewController,UICollectionViewDelegate,UICollecti
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        animationView?.isHidden = false
-        animationView!.play()
+        AnimateViewModel().playAnimation(animationView: animationView!)
+        
+        if let controller = storyboard?.instantiateViewController(withIdentifier: "LiveRoomViewController") as? LiveRoomViewController{
+            controller.modalPresentationStyle = .fullScreen
+            
+            let live = myLive[indexPath.row]
+            let queue = DispatchQueue.global()
+            queue.async {
+                let url = URL(string: live.head_photo)
+                let url2 = URL(string: live.background_image)
+                let urlFail = URL(string: "https://raw.githubusercontent.com/stan001182/mac.pic/pic/images/paopao%403x.png")
+                let data = try? Data(contentsOf: url!)
+                let data2 = try? Data(contentsOf: url2!)
+                let dataFail = try? Data(contentsOf: urlFail!)
+                let img = UIImage(data: ((data ?? dataFail)!))
+                let img2 = UIImage(data: ((data2 ?? dataFail)!))
+                DispatchQueue.main.async {
+                    controller.hostpic = img
+                    controller.hostbg = img2
+                }
+                controller.hostname = live.nickname
+                controller.hosttitle = live.stream_title
+                
+            }
         
         DispatchQueue.main.asyncAfter(deadline: .now()+1) { [self] in
-            animationView?.isHidden = true
-            animationView!.stop()
-            if let controller = storyboard?.instantiateViewController(withIdentifier: "LiveRoomViewController") as? LiveRoomViewController{
-                controller.modalPresentationStyle = .fullScreen
+            AnimateViewModel().stopAnimation(animationView: animationView!)
                 present(controller, animated: true, completion: nil)
             }
             

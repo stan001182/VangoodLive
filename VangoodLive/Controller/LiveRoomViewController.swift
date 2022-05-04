@@ -19,15 +19,28 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
     @IBOutlet weak var exitBtn: UIButton!
     @IBOutlet weak var sendMessageBtn: UIButton!
     @IBOutlet weak var moveView: UIView!
-    @IBOutlet weak var stackview: UIStackView!
+    @IBOutlet weak var realCount: UILabel!
+    @IBOutlet weak var hostPic: UIImageView!
+    @IBOutlet weak var hostName: UILabel!
+    @IBOutlet weak var hostTitle: UILabel!
+    @IBOutlet weak var infoView: UIView!
     
     @IBOutlet weak var changeHight: NSLayoutConstraint!
+    
+    
     var player : AVPlayer?
     var animationView: AnimationView?
-    var user:User?
+    var user : User?
     var nickname = NSLocalizedString("visitor", comment: "")
+    var hostpic : UIImage?
+    var hostname : String?
+    var hosttitle : String?
+    var hostbg : UIImage?
+    var streamerid : Int?
     var webSocketTask:URLSessionWebSocketTask?
     var receiveResult = [String]()
+    let runLabel = UILabel()
+    var timer : Timer?
     
     var videoResult :[videoInfo]?
     var channelInfo :channelInfo?
@@ -35,16 +48,18 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
     lazy var videoPlayerView = YTPlayerView()
     
     
-//    private lazy var layer : AVPlayerLayer? = {
-//        let remoteURL = NSURL(fileURLWithPath: Bundle.main.path(forResource: "hime3", ofType: "mp4")!
-//        )
-//        self.player = AVPlayer(url: remoteURL as URL)
-//        player?.audiovisualBackgroundPlaybackPolicy = .continuesIfPossible
-//        let layer = AVPlayerLayer(player: self.player)
-//        layer.frame = self.view.layer.bounds
-//        layer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-//        return layer
-//    }()
+    private lazy var layer : AVPlayerLayer? = {
+        let remoteURL = NSURL(fileURLWithPath: Bundle.main.path(forResource: "hime3", ofType: "mp4")!
+        )
+        self.player = AVPlayer(url: remoteURL as URL)
+        player?.audiovisualBackgroundPlaybackPolicy = .continuesIfPossible
+        let layer = AVPlayerLayer(player: self.player)
+        layer.frame = self.view.layer.bounds
+        layer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        return layer
+    }()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,41 +68,56 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
         fetchPlayListInfo()
         
         
-        let parameter = ["playsinline" : "1", "modestbranding" : "0"]
-        videoPlayerView.delegate = self
-        videoPlayerView.frame = self.view.bounds
-//        videoPlayerView.frame.size.height = self.view.frame.self.height/2
-        videoPlayerView.isUserInteractionEnabled = false
-        self.view.addSubview(videoPlayerView)
-        self.view.sendSubviewToBack(videoPlayerView)
-        videoPlayerView.load(withVideoId: videoID.randomElement()!, playerVars: parameter)
-        videoPlayerView.playVideo()
+        runLabel.frame = CGRect(x: 414, y: 150, width: 414, height: 40)
+        runLabel.text = "我是公告"
+        runLabel.textColor = .white
+        runLabel.backgroundColor = .init(red: 0, green: 0, blue: 0, alpha: 0.7)
+        runLabel.clipsToBounds = true
+        runLabel.layer.cornerRadius = 20
+        runLabel.numberOfLines = 1
+        runLabel.adjustsFontSizeToFitWidth = true
+        self.view.addSubview(runLabel)
+        
+//        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(runAction), userInfo: nil, repeats: true)
+        
+        
+        //youtube串流
+        //        let parameter = ["playsinline" : "1", "modestbranding" : "0"]
+        //        videoPlayerView.delegate = self
+        //        videoPlayerView.frame = self.view.bounds
+        ////        videoPlayerView.frame.size.height = self.view.frame.self.height/2
+        //        videoPlayerView.isUserInteractionEnabled = false
+        //        self.view.addSubview(videoPlayerView)
+        //        self.view.sendSubviewToBack(videoPlayerView)
+        //        videoPlayerView.load(withVideoId: videoID.randomElement()!, playerVars: parameter)
+        //        videoPlayerView.playVideo()
         
         
         messageTF.delegate = self
         tableView.allowsSelection = false
         alertView.isHidden = true
         messageTF.textColor = .white
+        realCount.layer.cornerRadius = 10
+        hostPic.image = hostpic
+        hostPic.layer.cornerRadius = 23
+        hostName.text = hostname
+        hostTitle.text = hosttitle
+        infoView.layer.cornerRadius = 20
         
-        animationView = .init(name: "brokenheart")
-        animationView!.frame = view.bounds
-        animationView!.contentMode = .scaleAspectFit
-        animationView!.animationSpeed = 2
-        view.addSubview(animationView!)
-        animationView?.isHidden = true
+        
         
         // 設定 Cell 的高度能自我調整
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
         // 將tableview倒置
         tableView.transform = CGAffineTransform(rotationAngle: .pi)
- 
+        
         
         //將player壓到下層
-//        let playerView = UIView()
-//        playerView.layer.addSublayer(layer!)
-//        self.view.addSubview(playerView)
-//        self.view.sendSubviewToBack(playerView)
+        let playerView = UIView()
+        playerView.layer.addSublayer(layer!)
+        self.view.addSubview(playerView)
+        self.view.sendSubviewToBack(playerView)
         
         guard Auth.auth().currentUser != nil else {
             webSocketConnect()
@@ -101,17 +131,25 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
         
     }
     
+//    @objc func runAction(){
+//        if runLabel.frame.maxX > 0{
+//        runLabel.frame.origin.x -= 5
+//        }else{
+//            runLabel.frame.origin.x = 414
+//        }
+//    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         addKeyboardObserver()
         gradientLayer()
         
-//        player?.play()
-//        print("開始播放")
-//        player?.actionAtItemEnd = .none
-//        //加入觀察器當播放完畢再重新播放一次
-//        NotificationCenter.default.addObserver(self,selector: #selector(playerItemDidReachEnd(notification:)),name: .AVPlayerItemDidPlayToEndTime,object:player?.currentItem)
+        player?.play()
+        print("開始播放")
+        player?.actionAtItemEnd = .none
+        //加入觀察器當播放完畢再重新播放一次
+        NotificationCenter.default.addObserver(self,selector: #selector(playerItemDidReachEnd(notification:)),name: .AVPlayerItemDidPlayToEndTime,object:player?.currentItem)
         
         
         guard Auth.auth().currentUser != nil else {
@@ -122,60 +160,73 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
         nickname = user?.displayName ?? ""
         
         
-        let YourString = "西瓜,奇異果,蘋果,香蕉"
-        let Components = YourString.components(separatedBy: ",")
-        
-        
-        for text in Components{
-
-
-        let button1 = UIButton()
-                button1.setTitle(text, for: .normal)
-//        let button2 = UIButton()
-//        button2.backgroundColor = .blue
-//            button2.setTitle("西瓜", for: .normal)
-//            button2.titleLabel?.font = UIFont.boldSystemFont(ofSize: 10)
-//
-            stackview.addArrangedSubview(button1)
-            
-        
-        }
-        
     }
     
-//    @objc func playerItemDidReachEnd(notification: Notification) {
-//        if let playerItem = notification.object as? AVPlayerItem {
-//            playerItem.seek(to: CMTime.zero, completionHandler: nil)
-//            print("重新播放")
-//        }
-//    }
-//
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//        layer!.frame = view.bounds
-//    }
+    @objc func playerItemDidReachEnd(notification: Notification) {
+        if let playerItem = notification.object as? AVPlayerItem {
+            playerItem.seek(to: CMTime.zero, completionHandler: nil)
+            print("重新播放")
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        layer!.frame = view.bounds
+    }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         webSocketDisConnect()
         //移除player和avplayerlayer避免記憶體持續增加
-//        if self.player != nil{
-//            self.player!.pause()
-//            self.player = nil
-//            print("影片停止播放")
-//        }
-//        if self.layer != nil{
-//        layer?.removeFromSuperlayer()
-//        layer = nil
-//        }
-//        //移除player監聽器
-//        NotificationCenter.default.removeObserver(self, name: .AVPlayerItemDidPlayToEndTime, object: nil)
+        if self.player != nil{
+            self.player!.pause()
+            self.player = nil
+            print("影片停止播放")
+        }
+        if self.layer != nil{
+            layer?.removeFromSuperlayer()
+            layer = nil
+        }
+        //移除player監聽器
+        NotificationCenter.default.removeObserver(self, name: .AVPlayerItemDidPlayToEndTime, object: nil)
+    }
+    
+    @IBAction func rightForHide(_ sender: UISwipeGestureRecognizer) {
+        moveView.isHidden = true
+    }
+    
+    @IBAction func leftForShow(_ sender: UISwipeGestureRecognizer) {
+        moveView.isHidden = false
+    }
+    
+    @IBAction func didEndOnExit(_ sender: UITextField) {
+    }
+    
+    @IBAction func share(_ sender: UIButton) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ShareViewController") as! ShareViewController
+        vc.hostPic = hostpic
+        vc.hostName = hostname
+        vc.modalPresentationStyle = .overFullScreen
+        present(vc, animated: true)
+    }
+    
+    @IBAction func tapToInfo(_ sender: UITapGestureRecognizer) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InfoViewController") as! InfoViewController
+        vc.hostpic = hostpic
+        vc.hostbg = hostbg
+        vc.hostname = hostname
+        vc.hosttitle = hosttitle
+        vc.streamerid = streamerid
+        vc.modalPresentationStyle = .overFullScreen
+        present(vc, animated: true)
     }
     
     
-    
-    @IBAction func didEndOnExit(_ sender: UITextField) {
+    @IBAction func giftItemBtn(_ sender: UIButton) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GiftViewController") as! GiftViewController
+        vc.modalPresentationStyle = .overFullScreen
+        present(vc, animated: true)
     }
     
     
@@ -185,11 +236,12 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
     
     @IBAction func leaveBtn(_ sender: UIButton) {
         alertView.isHidden = true
-        animationView?.isHidden = false
-        animationView!.play()
+        animationView = AnimateViewModel().makeAnimationView(initName: "brokenheart", speed: 2)
+        view.addSubview(animationView!)
+        AnimateViewModel().playAnimation(animationView: animationView!)
         DispatchQueue.main.asyncAfter(deadline: .now()+1) { [self] in
-            animationView?.isHidden = true
-            animationView!.stop()
+            AnimateViewModel().stopAnimation(animationView: animationView!)
+            animationView?.removeFromSuperview()
             self.dismiss(animated: true, completion: nil)
         }
     }
@@ -206,18 +258,18 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
             return
         }
         
-//        guard messageTF.text!.count <= 200 else {
-//            self.view.endEditing(true)
-//            alertview(title: "字數太多", message: "請勿洗版")
-//            return
-//        }
+        //        guard messageTF.text!.count <= 200 else {
+        //            self.view.endEditing(true)
+        //            alertview(title: "字數太多", message: "請勿洗版")
+        //            return
+        //        }
         
-//        let punctuation = " ~!#$%^&*()_-+=?<>.—，。/\\|《》？;:：'‘；“,"
-//            for i in punctuation {
-//                    if self.messageTF.text?.contains(i) == true {
-//                        return
-//                    }
-//                }
+        //        let punctuation = " ~!#$%^&*()_-+=?<>.—，。/\\|《》？;:：'‘；“,"
+        //            for i in punctuation {
+        //                    if self.messageTF.text?.contains(i) == true {
+        //                        return
+        //                    }
+        //                }
         sendMessage()
         messageTF.text = ""
     }
@@ -245,6 +297,11 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
         cell.messageTV.text = resultArray
         
         return cell
+    }
+    
+    //滑動時也要繪製圖層，不然會破圖
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        gradientLayer()
     }
     
     func gradientLayer(){
@@ -338,9 +395,19 @@ extension LiveRoomViewController: URLSessionWebSocketDelegate {
         }
     }
     
+    private func sendMessage(sendmessage:String){
+        let message = URLSessionWebSocketTask.Message.string("{\"action\": \"N\",\"content\": \"\(sendmessage)\"}")
+        webSocketTask?.send(message) { error in
+            print(message)
+            if let error = error {
+                print(error)
+            }
+        }
+    }
+    
     private func receive() {
         
-        webSocketTask?.receive { result in
+        webSocketTask?.receive { [self] result in
             switch result {
             case .success(let message):
                 switch message {
@@ -367,12 +434,25 @@ extension LiveRoomViewController: URLSessionWebSocketDelegate {
                             if myJSONModel.event == "sys_updateRoomStatus"{
                                 if myJSONModel.body!.entry_notice!.action! == "enter"{
                                     self.receiveResult.append("\(myJSONModel.body!.entry_notice!.username!):\(NSLocalizedString("into-room", comment: ""))")
+                                    self.realCount.text = ("\(NSLocalizedString("real-count", comment: ""))\(String(describing: myJSONModel.body!.real_count!))")
                                 }else{
                                     self.receiveResult.append("\(myJSONModel.body!.entry_notice!.username!):\(NSLocalizedString("leave-room", comment: ""))")
+                                    self.realCount.text = ("\(NSLocalizedString("real-count", comment: ""))\(String(describing: myJSONModel.body!.real_count!))")
                                 }
                             }
                             if myJSONModel.event == "admin_all_broadcast"{
                                 self.receiveResult.append(myJSONModel.body!.content!.tw!)
+                                self.runLabel.text = myJSONModel.body!.content!.tw!
+                                if self.runLabel.frame.maxX == 0{
+                                    self.runLabel.frame.origin.x = 414
+                                    UIView.animate(withDuration: 10) {
+                                        self.runLabel.frame.origin.x = -414
+                                    }
+                                }else{
+                                UIView.animate(withDuration: 10) {
+                                    self.runLabel.frame.origin.x = -414
+                                }
+                                }
                             }
                             if myJSONModel.event == "sys_room_endStream"{
                                 self.receiveResult.append(myJSONModel.body!.text!)
@@ -392,9 +472,9 @@ extension LiveRoomViewController: URLSessionWebSocketDelegate {
             self.tableView.reloadData()
             print("開始接收資料")
             //有新留言時捲到底部
-//            if self.receiveResult.count > 0 {
-//                self.tableView.scrollToRow(at: IndexPath(row: self.receiveResult.count - 1, section: 0), at: .bottom, animated: true)
-//            }
+            //            if self.receiveResult.count > 0 {
+            //                self.tableView.scrollToRow(at: IndexPath(row: self.receiveResult.count - 1, section: 0), at: .bottom, animated: true)
+            //            }
             
             self.receive()
         }
@@ -449,7 +529,7 @@ extension LiveRoomViewController: YTPlayerViewDelegate {
                         let searchResponse = try decoder.decode(ChannelResponse.self, from: data)
                         
                         self.channelInfo = searchResponse.items![0]
-                        print(searchResponse.items![0])
+//                        print(searchResponse.items![0])
                         
                     }
                     catch  {

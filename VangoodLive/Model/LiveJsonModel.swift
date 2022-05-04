@@ -24,6 +24,7 @@ class DataStruct {
         let text: String?
         let info: InfoResult?
         let entry_notice: Entry_noticeResult?
+        let real_count: Int?
         let content: ContentResult?
         
     }
@@ -62,7 +63,8 @@ struct Live: Codable {
     var head_photo: String
     var tags: String
     var online_num: Int
-    
+    var background_image: String
+    var streamer_id : Int
 }
 
 class stream_list{

@@ -18,13 +18,8 @@ class ResetPasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        animationView = .init(name: "mail")
-        animationView!.frame = view.bounds
-        animationView!.contentMode = .scaleAspectFit
-        animationView!.animationSpeed = 2
+        animationView = AnimateViewModel().makeAnimationView(initName: "mail", speed: 2)
         view.addSubview(animationView!)
-        animationView?.isHidden = true
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "titlebarBack")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(backBtn))
     }
@@ -36,14 +31,12 @@ class ResetPasswordViewController: UIViewController {
     }
     
     @IBAction func resetBtn(_ sender: UIButton) {
-        
-        animationView?.isHidden = false
-        animationView!.play()
+       
+        AnimateViewModel().playAnimation(animationView: animationView!)
         
         if self.account.text == "" {
             alertview(title: NSLocalizedString("title11", comment: ""), message: NSLocalizedString("message11", comment: ""))
-            self.animationView!.stop()
-            self.animationView?.isHidden = true
+            AnimateViewModel().stopAnimation(animationView: animationView!)
         }else{
             Auth.auth().sendPasswordReset(withEmail: self.account.text!, completion: { (error) in
                 
@@ -53,14 +46,12 @@ class ResetPasswordViewController: UIViewController {
                 if error != nil {
                     title = NSLocalizedString("title12", comment: "")
                     message = ("\(NSLocalizedString("title12", comment: ""))\(error!.localizedDescription)")
-                    self.animationView!.stop()
-                    self.animationView?.isHidden = true
+                    AnimateViewModel().stopAnimation(animationView: self.animationView!)
                     self.account.text = ""
                 } else {
                     title = NSLocalizedString("title13", comment: "")
                     message = NSLocalizedString("message13", comment: "")
-                    self.animationView!.stop()
-                    self.animationView?.isHidden = true
+                    AnimateViewModel().stopAnimation(animationView: self.animationView!)
                     self.account.text = ""
                 }
                 self.alertview(title: title, message: message)

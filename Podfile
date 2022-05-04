@@ -9,6 +9,7 @@ pod 'Firebase'
 pod 'Firebase/Storage'
 pod 'FirebaseUI/Storage'
 pod 'FirebaseUI/Auth'
+pod 'Firebase/Firestore'
 
   # Pods for LottieDemo
 pod 'lottie-ios'

@@ -27,16 +27,13 @@ class RegistViewController: UIViewController,UIImagePickerControllerDelegate, UI
         super.viewDidLoad()
         
         hideKeyboardWhenTappedAround()
-    
+        
         headShot.clipsToBounds = true
         headShot.layer.cornerRadius = headShot.frame.height/2
         
-        animationView = .init(name: "mail")
-        animationView!.frame = view.bounds
-        animationView!.contentMode = .scaleAspectFit
-        animationView!.animationSpeed = 2
+        animationView = AnimateViewModel().makeAnimationView(initName: "mail", speed: 2)
         view.addSubview(animationView!)
-        animationView?.isHidden = true
+        
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "titlebarBack")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(backBtn))
         
@@ -70,33 +67,27 @@ class RegistViewController: UIViewController,UIImagePickerControllerDelegate, UI
     
     @IBAction func registBtn(_ sender: Any) {
         
-        
-        animationView?.isHidden = false
-        animationView!.play()
+        AnimateViewModel().playAnimation(animationView: animationView!)
         
         if account.text == "" || password.text == "" {
             
             alertview(title: NSLocalizedString("title2", comment: ""), message: NSLocalizedString("message2", comment: ""))
-            self.animationView!.stop()
-            self.animationView?.isHidden = true
+            AnimateViewModel().stopAnimation(animationView: animationView!)
         }else if password.text!.count < 6 || password.text!.count > 12{
             
             alertview(title: NSLocalizedString("title3", comment: ""), message: NSLocalizedString("message3", comment: ""))
-            self.animationView!.stop()
-            self.animationView?.isHidden = true
+            AnimateViewModel().stopAnimation(animationView: animationView!)
             
         }else if account.text!.count < 4 || account.text!.count > 20{
             
             alertview(title: NSLocalizedString("title4", comment: ""), message: NSLocalizedString("message4", comment: ""))
-            self.animationView!.stop()
-            self.animationView?.isHidden = true
+            AnimateViewModel().stopAnimation(animationView: animationView!)
         }else {
             Auth.auth().createUser(withEmail: account.text!, password: password.text!) { (result, error) in
                 
                 if (result?.user) != nil {
                     
-                    self.animationView!.stop()
-                    self.animationView?.isHidden = true
+                    AnimateViewModel().stopAnimation(animationView: self.animationView!)
                     
                     let reference_root = Storage.storage().reference()
                     
@@ -132,8 +123,7 @@ class RegistViewController: UIViewController,UIImagePickerControllerDelegate, UI
                     self.present(alertController, animated: true, completion: nil)
                     
                 } else {
-                    self.animationView!.stop()
-                    self.animationView?.isHidden = true
+                    AnimateViewModel().stopAnimation(animationView: self.animationView!)
                     let alertController = UIAlertController(title: NSLocalizedString("title12", comment: ""), message: error?.localizedDescription, preferredStyle: .alert)
                     
                     let defaultAction = UIAlertAction(title: NSLocalizedString("okay", comment: ""), style: .cancel, handler: nil)

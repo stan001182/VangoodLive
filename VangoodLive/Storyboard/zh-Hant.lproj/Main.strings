@@ -175,3 +175,9 @@
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "zw6-s8-wqG"; */
 "zw6-s8-wqG.text" = "Label";
+
+/* Class = "UIButton"; configuration.title = "送禮"; ObjectID = "wCB-qS-HlL"; */
+"wCB-qS-HlL.configuration.title" = "送禮";
+
+/* Class = "UIButton"; normalTitle = "送禮"; ObjectID = "wCB-qS-HlL"; */
+"wCB-qS-HlL.normalTitle" = "送禮";

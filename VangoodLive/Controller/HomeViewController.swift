@@ -39,13 +39,9 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
         
         
         //設定lottie animate
-        animationView = .init(name: "player2")
-        animationView!.frame = view.bounds
-        animationView!.contentMode = .scaleAspectFit
-        animationView!.animationSpeed = 2
+        animationView = AnimateViewModel().makeAnimationView(initName: "player2", speed: 2)
         view.addSubview(animationView!)
-        animationView?.isHidden = true
-        
+       
         //解析取得json資料
         guard let live:[Live] = stream_list.parseJson(stream_list.liveJson) else {
             print("parse fail")
@@ -59,7 +55,7 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
         print("home viewWillAppear")
         
         //當沒有會員時將顯示會員資料的view高度設為0
-        //topViewHight.constant = Auth.auth().currentUser == nil ? 0 : 40
+        topViewHight.constant = Auth.auth().currentUser == nil ? 0 : 40
         
         //判斷是否有會員，有的話才去firebase取得會員資料
         guard Auth.auth().currentUser != nil else {
@@ -124,16 +120,34 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        animationView?.isHidden = false
-        animationView!.play()
+        AnimateViewModel().playAnimation(animationView: animationView!)
+        
+        if let controller = storyboard?.instantiateViewController(withIdentifier: "LiveRoomViewController") as? LiveRoomViewController{
+            controller.modalPresentationStyle = .fullScreen
+            
+            let live = myLive[indexPath.row]
+            let queue = DispatchQueue.global()
+            queue.async {
+                let url = URL(string: live.head_photo)
+                let url2 = URL(string: live.background_image)
+                let urlFail = URL(string: "https://raw.githubusercontent.com/stan001182/mac.pic/pic/images/paopao%403x.png")
+                let data = try? Data(contentsOf: url!)
+                let data2 = try? Data(contentsOf: url2!)
+                let dataFail = try? Data(contentsOf: urlFail!)
+                let img = UIImage(data: ((data ?? dataFail)!))
+                let img2 = UIImage(data: ((data2 ?? dataFail)!))
+                DispatchQueue.main.async {
+                    controller.hostpic = img
+                    controller.hostbg = img2
+                }
+                controller.hostname = live.nickname
+                controller.hosttitle = live.stream_title
+                controller.streamerid = live.streamer_id
+            }
         
         DispatchQueue.main.asyncAfter(deadline: .now()+1) { [self] in
-            animationView?.isHidden = true
-            animationView!.stop()
-            if let controller = storyboard?.instantiateViewController(withIdentifier: "LiveRoomViewController") as? LiveRoomViewController{
-                controller.modalPresentationStyle = .fullScreen
+            AnimateViewModel().stopAnimation(animationView: animationView!)
                 present(controller, animated: true, completion: nil)
-                
             }
             
         }

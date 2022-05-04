@@ -9,9 +9,20 @@
 /* Begin PBXBuildFile section */
 		056E4246BD8A6B89F3FAA572 /* Pods_VangoodLive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92212492F060D2943E7FCA11 /* Pods_VangoodLive.framework */; };
 		485CC26C2817900600A93E3B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 485CC26E2817900600A93E3B /* Localizable.strings */; };
+		486CDA9E28201B32002D15A2 /* rocket-diamond.json in Resources */ = {isa = PBXBuildFile; fileRef = 486CDA9D28201B32002D15A2 /* rocket-diamond.json */; };
+		486CDAA028201B58002D15A2 /* rocket.json in Resources */ = {isa = PBXBuildFile; fileRef = 486CDA9F28201B58002D15A2 /* rocket.json */; };
+		486CDAA228201DCA002D15A2 /* sakura.json in Resources */ = {isa = PBXBuildFile; fileRef = 486CDAA128201DCA002D15A2 /* sakura.json */; };
+		486CDAA428201F10002D15A2 /* medal.json in Resources */ = {isa = PBXBuildFile; fileRef = 486CDAA328201F10002D15A2 /* medal.json */; };
+		486CDAA8282026EC002D15A2 /* wreath.json in Resources */ = {isa = PBXBuildFile; fileRef = 486CDAA7282026EC002D15A2 /* wreath.json */; };
 		48AA35302817CB3D007F2844 /* YouTubeiOSPlayerHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 48AA352F2817CB3D007F2844 /* YouTubeiOSPlayerHelper */; };
 		48AA35362817CCB1007F2844 /* YTStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AA35352817CCB1007F2844 /* YTStruct.swift */; };
-		48AA353C2817F58C007F2844 /* GiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AA353B2817F58C007F2844 /* GiftViewController.swift */; };
+		48AA353C2817F58C007F2844 /* AnimateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AA353B2817F58C007F2844 /* AnimateViewModel.swift */; };
+		48AA353E2818F43B007F2844 /* car.json in Resources */ = {isa = PBXBuildFile; fileRef = 48AA353D2818F43B007F2844 /* car.json */; };
+		48AA35422818FC8D007F2844 /* heart-fly.json in Resources */ = {isa = PBXBuildFile; fileRef = 48AA35412818FC8D007F2844 /* heart-fly.json */; };
+		48AA3566281A7D58007F2844 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AA3565281A7D58007F2844 /* ShareViewController.swift */; };
+		48AA356A281A915B007F2844 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AA3569281A915B007F2844 /* InfoViewController.swift */; };
+		48AA356C281BBE22007F2844 /* GiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AA356B281BBE22007F2844 /* GiftViewController.swift */; };
+		48AA356E281BCDC7007F2844 /* GiftCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AA356D281BCDC7007F2844 /* GiftCollectionViewCell.swift */; };
 		4B26CE7A280A737A0032FF2D /* hime3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E3E8F9A127F33E3E0047A841 /* hime3.mp4 */; };
 		4B92DF2427F765AA000975A3 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B92DF2327F765AA000975A3 /* ResetPasswordViewController.swift */; };
 		4B92DF2627F771AD000975A3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B92DF2527F771AD000975A3 /* ProfileViewController.swift */; };
@@ -40,6 +51,11 @@
 
 /* Begin PBXFileReference section */
 		485CC26D2817900600A93E3B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		486CDA9D28201B32002D15A2 /* rocket-diamond.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "rocket-diamond.json"; sourceTree = "<group>"; };
+		486CDA9F28201B58002D15A2 /* rocket.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rocket.json; sourceTree = "<group>"; };
+		486CDAA128201DCA002D15A2 /* sakura.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sakura.json; sourceTree = "<group>"; };
+		486CDAA328201F10002D15A2 /* medal.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = medal.json; sourceTree = "<group>"; };
+		486CDAA7282026EC002D15A2 /* wreath.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wreath.json; sourceTree = "<group>"; };
 		48AA35292817A70C007F2844 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
 		48AA352B2817A711007F2844 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		48AA352D2817A908007F2844 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -47,7 +63,13 @@
 		48AA35372817E799007F2844 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		48AA35382817E7D3007F2844 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		48AA353A2817E7E4007F2844 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		48AA353B2817F58C007F2844 /* GiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftViewController.swift; sourceTree = "<group>"; };
+		48AA353B2817F58C007F2844 /* AnimateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimateViewModel.swift; sourceTree = "<group>"; };
+		48AA353D2818F43B007F2844 /* car.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = car.json; sourceTree = "<group>"; };
+		48AA35412818FC8D007F2844 /* heart-fly.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "heart-fly.json"; sourceTree = "<group>"; };
+		48AA3565281A7D58007F2844 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShareViewController.swift; path = /Users/stan_tseng/Desktop/VangoodLive/VangoodLive/Controller/ShareViewController.swift; sourceTree = "<absolute>"; };
+		48AA3569281A915B007F2844 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InfoViewController.swift; path = /Users/stan_tseng/Desktop/VangoodLive/VangoodLive/Controller/InfoViewController.swift; sourceTree = "<absolute>"; };
+		48AA356B281BBE22007F2844 /* GiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftViewController.swift; sourceTree = "<group>"; };
+		48AA356D281BCDC7007F2844 /* GiftCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCollectionViewCell.swift; sourceTree = "<group>"; };
 		4B92DF2327F765AA000975A3 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		4B92DF2527F771AD000975A3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4B9513D627FEA86000CFAF8D /* mail-without-burst.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "mail-without-burst.json"; sourceTree = "<group>"; };
@@ -97,6 +119,13 @@
 		4B9513DE27FF39D900CFAF8D /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
+				48AA35412818FC8D007F2844 /* heart-fly.json */,
+				486CDA9D28201B32002D15A2 /* rocket-diamond.json */,
+				486CDAA7282026EC002D15A2 /* wreath.json */,
+				486CDAA128201DCA002D15A2 /* sakura.json */,
+				486CDA9F28201B58002D15A2 /* rocket.json */,
+				486CDAA328201F10002D15A2 /* medal.json */,
+				48AA353D2818F43B007F2844 /* car.json */,
 				4B9513E127FF3BCC00CFAF8D /* brokenheart.json */,
 				4B9513DF27FF3A0900CFAF8D /* player.json */,
 				4B9513E327FF425A00CFAF8D /* player2.json */,
@@ -173,6 +202,7 @@
 				E333588627F1DD3C00CAEEB1 /* SceneDelegate.swift */,
 				E3E8F9A327F3489E0047A841 /* LiveJsonModel.swift */,
 				48AA35352817CCB1007F2844 /* YTStruct.swift */,
+				48AA353B2817F58C007F2844 /* AnimateViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -183,6 +213,7 @@
 				E333589C27F1E0AA00CAEEB1 /* HomeCollectionViewCell.swift */,
 				4B9513E528001A3D00CFAF8D /* CollectionReusableViewForHeader.swift */,
 				4B9514092803266D00CFAF8D /* ChatCell.swift */,
+				48AA356D281BCDC7007F2844 /* GiftCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -193,12 +224,14 @@
 				4BDD00DD27F40CB80092B12A /* TabBarViewController.swift */,
 				4B9513E72800A2C200CFAF8D /* HomeViewController.swift */,
 				E333588827F1DD3C00CAEEB1 /* LiveRoomViewController.swift */,
+				48AA3569281A915B007F2844 /* InfoViewController.swift */,
+				48AA3565281A7D58007F2844 /* ShareViewController.swift */,
+				48AA356B281BBE22007F2844 /* GiftViewController.swift */,
 				E3E8F9A627F3760C0047A841 /* SearchViewController.swift */,
 				4BDD010127F4528D0092B12A /* ProfileLogInViewController.swift */,
 				4B92DF2527F771AD000975A3 /* ProfileViewController.swift */,
 				4B92DF2327F765AA000975A3 /* ResetPasswordViewController.swift */,
 				E3E8F99F27F33CB20047A841 /* RegistViewController.swift */,
-				48AA353B2817F58C007F2844 /* GiftViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -280,12 +313,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				486CDA9E28201B32002D15A2 /* rocket-diamond.json in Resources */,
 				4B26CE7A280A737A0032FF2D /* hime3.mp4 in Resources */,
 				485CC26C2817900600A93E3B /* Localizable.strings in Resources */,
+				48AA35422818FC8D007F2844 /* heart-fly.json in Resources */,
+				48AA353E2818F43B007F2844 /* car.json in Resources */,
+				486CDAA428201F10002D15A2 /* medal.json in Resources */,
 				4B9513E027FF3A0900CFAF8D /* player.json in Resources */,
 				4B9513D927FEAFFB00CFAF8D /* mail.json in Resources */,
+				486CDAA8282026EC002D15A2 /* wreath.json in Resources */,
 				E333589127F1DD3C00CAEEB1 /* LaunchScreen.storyboard in Resources */,
+				486CDAA028201B58002D15A2 /* rocket.json in Resources */,
 				E3BC3D7D27F4AA440066C046 /* GoogleService-Info.plist in Resources */,
+				486CDAA228201DCA002D15A2 /* sakura.json in Resources */,
 				4B9513D727FEA86000CFAF8D /* mail-without-burst.json in Resources */,
 				4B9513E227FF3BCC00CFAF8D /* brokenheart.json in Resources */,
 				E333588E27F1DD3C00CAEEB1 /* Assets.xcassets in Resources */,
@@ -343,21 +383,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48AA356E281BCDC7007F2844 /* GiftCollectionViewCell.swift in Sources */,
 				4BDD010227F4528D0092B12A /* ProfileLogInViewController.swift in Sources */,
 				E3E8F9A027F33CB20047A841 /* RegistViewController.swift in Sources */,
 				E333589D27F1E0AA00CAEEB1 /* HomeCollectionViewCell.swift in Sources */,
 				4B92DF2427F765AA000975A3 /* ResetPasswordViewController.swift in Sources */,
+				48AA356A281A915B007F2844 /* InfoViewController.swift in Sources */,
 				4B9513E628001A3D00CFAF8D /* CollectionReusableViewForHeader.swift in Sources */,
 				4B9513E82800A2C200CFAF8D /* HomeViewController.swift in Sources */,
+				48AA3566281A7D58007F2844 /* ShareViewController.swift in Sources */,
 				E3E8F9A727F3760C0047A841 /* SearchViewController.swift in Sources */,
 				E3E8F9A427F3489E0047A841 /* LiveJsonModel.swift in Sources */,
 				4B95140A2803266D00CFAF8D /* ChatCell.swift in Sources */,
 				4B92DF2627F771AD000975A3 /* ProfileViewController.swift in Sources */,
 				4BDD00DE27F40CB80092B12A /* TabBarViewController.swift in Sources */,
 				48AA35362817CCB1007F2844 /* YTStruct.swift in Sources */,
-				48AA353C2817F58C007F2844 /* GiftViewController.swift in Sources */,
+				48AA353C2817F58C007F2844 /* AnimateViewModel.swift in Sources */,
 				E333588927F1DD3C00CAEEB1 /* LiveRoomViewController.swift in Sources */,
 				E333588527F1DD3C00CAEEB1 /* AppDelegate.swift in Sources */,
+				48AA356C281BBE22007F2844 /* GiftViewController.swift in Sources */,
 				E333588727F1DD3C00CAEEB1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -546,7 +590,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.stan.VangoodLive;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.stan-tseng.VangoodLive";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -582,7 +626,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.stan.VangoodLive;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.stan-tseng.VangoodLive";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

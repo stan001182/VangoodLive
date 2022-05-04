@@ -10,6 +10,8 @@
 "visitor" = "访客";
 "into-room" = "进入直播间";
 "leave-room" = "离开直播间";
+"gift" = "送礼";
+"real-count" = "在线人数:";
 "search-result" = "搜寻结果";
 "popular-result" = "热门直播";
 "title2" = "错误！帐号或密码空白";

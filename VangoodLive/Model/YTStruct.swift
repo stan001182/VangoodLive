@@ -15,6 +15,7 @@ struct CommonData{
     let maxResult = 25
 }
 
+//頻道資訊
 struct ChannelResponse:Codable{
     let items: [channelInfo]?
 }
@@ -48,10 +49,7 @@ struct linksAndUploads:Codable{
     let uploads: String?
 }
 
-
-
-
-
+//影片清單資訊
 struct PlayListResponse:Codable{
     let items: [videoInfo]?
 }
