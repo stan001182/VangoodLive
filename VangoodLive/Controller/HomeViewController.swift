@@ -143,6 +143,8 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
                 controller.hostname = live.nickname
                 controller.hosttitle = live.stream_title
                 controller.streamerid = live.streamer_id
+                controller.hostpicURL = live.head_photo
+                controller.hostbgURL = live.background_image
             }
         
         DispatchQueue.main.asyncAfter(deadline: .now()+1) { [self] in
@@ -156,11 +158,11 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     
     func darkOrLight() {
         let keyWindow = self.view.window!.windowScene?.keyWindow
+        let llll = UIButton()
         if keyWindow?.overrideUserInterfaceStyle == .light{
         keyWindow?.overrideUserInterfaceStyle = .dark
         }else{
             keyWindow?.overrideUserInterfaceStyle = .light
         }
     }
-    
 }

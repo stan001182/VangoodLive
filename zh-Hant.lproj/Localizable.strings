@@ -1,0 +1,47 @@
+/* 
+  Localizable.strings
+  VangoodLive
+
+  Created by Stan_Tseng on 2022/4/26.
+  
+*/
+"title" = "尚未輸入文字";
+"message" = "與主播聊聊天吧！";
+"visitor" = "訪客";
+"into-room" = "進入直播間";
+"leave-room" = "離開直播間";
+"gift" = "送禮";
+"real-count" = "在線人數:";
+"search-result" = "搜尋結果";
+"popular-result" = "熱門直播";
+"title2" = "錯誤！帳號或密碼空白";
+"message2" = "請輸入帳號密碼";
+"title3" = "錯誤！密碼不在6-12碼內";
+"message3" = "請重新輸入密碼";
+"title4" = "錯誤！帳號不在4-20碼內";
+"message4" = "請重新輸入帳號";
+"title5" = "錯誤！";
+"message5" = "帳號或密碼錯誤";
+"title6" = "更改暱稱？";
+"message6" = "請輸入新的暱稱";
+"nickname" = "暱稱";
+"okay" = "確定";
+"title7" = "欄位空白";
+"message7" = "請輸入您的暱稱！";
+"title8" = "修改成功";
+"message8" = "歡迎你！";
+"cancel" = "取消";
+"title9" = "更換您的頭像?";
+"message9" = "請選擇拍照或從相簿選取";
+"camera" = "拍照";
+"photolibrary" = "從相簿選取";
+"title10" = "修改成功";
+"message10" = "頭像已更新";
+"title11" = "錯誤！";
+"message11" = "請輸入帳號信箱";
+"title12" = "錯誤！";
+"message12" = "無此會員或信箱格式錯誤，請重新輸入";
+"title13" = "成功!";
+"message13" = "密碼重設驗證信已發送";
+"title14" = "歡迎！！";
+"message14" = "註冊成功";

@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 
+
 class ProfileLogInViewController: UIViewController {
     
     @IBOutlet weak var account: UITextField!
@@ -20,9 +21,12 @@ class ProfileLogInViewController: UIViewController {
     var rememberPassword:String = ""
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.setHidesBackButton(true, animated: false)
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,9 +45,11 @@ class ProfileLogInViewController: UIViewController {
             return
         }
         //如果用push的話會有返回按鈕，而且點tabbar會再跳回登入頁面，所以用currentContext，present的方式。
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController")
-        vc?.modalPresentationStyle = .currentContext
-        self.present(vc!, animated: false, completion: nil)
+//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController")
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController{
+            vc.modalPresentationStyle = .currentContext
+            self.present(vc, animated: false, completion: nil)
+        }
     }
     
     @IBAction func didEndOnExitFirst(_ sender: UITextField) {

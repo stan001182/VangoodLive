@@ -9,7 +9,8 @@ import UIKit
 import AVFoundation
 import Lottie
 import FirebaseAuth
-import YouTubeiOSPlayerHelper
+//import YouTubeiOSPlayerHelper
+import FirebaseFirestore
 
 class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
@@ -24,6 +25,7 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
     @IBOutlet weak var hostName: UILabel!
     @IBOutlet weak var hostTitle: UILabel!
     @IBOutlet weak var infoView: UIView!
+    @IBOutlet weak var followPic: UIImageView!
     
     @IBOutlet weak var changeHight: NSLayoutConstraint!
     
@@ -37,21 +39,26 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
     var hosttitle : String?
     var hostbg : UIImage?
     var streamerid : Int?
+    var hostpicURL : String?
+    var hostbgURL : String?
     var webSocketTask:URLSessionWebSocketTask?
     var receiveResult = [String]()
-    let runLabel = UILabel()
+    let db = Firestore.firestore()
+    
     var timer : Timer?
     
     var videoResult :[videoInfo]?
     var channelInfo :channelInfo?
     var videoID = ["gFfcEN_7kQ","vN-VsPKHW1k","Vx1zPxKTmTw","eexmdt3Q8yk","yD0RC6l7UMk"]
-    lazy var videoPlayerView = YTPlayerView()
+//    lazy var videoPlayerView = YTPlayerView()
     
     
     private lazy var layer : AVPlayerLayer? = {
-        let remoteURL = NSURL(fileURLWithPath: Bundle.main.path(forResource: "hime3", ofType: "mp4")!
-        )
-        self.player = AVPlayer(url: remoteURL as URL)
+        //        let remoteURL = NSURL(fileURLWithPath: Bundle.main.path(forResource: "hime3", ofType: "mp4")!
+        //        )
+        
+        let remoteURL = Bundle.main.url(forResource: "hime3", withExtension: "mp4")
+        self.player = AVPlayer(url: remoteURL!)
         player?.audiovisualBackgroundPlaybackPolicy = .continuesIfPossible
         let layer = AVPlayerLayer(player: self.player)
         layer.frame = self.view.layer.bounds
@@ -59,26 +66,46 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
         return layer
     }()
     
+    private let runLabel : UILabel = {
+        let Label = UILabel()
+        Label.frame = CGRect(x: 414, y: 150, width: 414, height: 40)
+        Label.text = "我是公告"
+        Label.textColor = .white
+        Label.backgroundColor = .init(red: 0, green: 0, blue: 0, alpha: 0.7)
+        Label.clipsToBounds = true
+        Label.layer.cornerRadius = 20
+        Label.numberOfLines = 1
+        Label.adjustsFontSizeToFitWidth = true
+        return Label
+    }()
+    
+    private let runLabel2 : UILabel = {
+        let Label = UILabel()
+        Label.frame = CGRect(x: 414, y: 200, width: 207, height: 40)
+        Label.text = "我是公告"
+        Label.textColor = .white
+        Label.backgroundColor = .systemOrange
+        Label.clipsToBounds = true
+        Label.layer.cornerRadius = 20
+        Label.numberOfLines = 1
+        Label.adjustsFontSizeToFitWidth = true
+        Label.textAlignment = .center
+        return Label
+    }()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchChanelInfo()
-        fetchPlayListInfo()
+//        fetchChanelInfo()
+//        fetchPlayListInfo()
         
-        
-        runLabel.frame = CGRect(x: 414, y: 150, width: 414, height: 40)
-        runLabel.text = "我是公告"
-        runLabel.textColor = .white
-        runLabel.backgroundColor = .init(red: 0, green: 0, blue: 0, alpha: 0.7)
-        runLabel.clipsToBounds = true
-        runLabel.layer.cornerRadius = 20
-        runLabel.numberOfLines = 1
-        runLabel.adjustsFontSizeToFitWidth = true
         self.view.addSubview(runLabel)
+        self.view.addSubview(runLabel2)
         
-//        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(runAction), userInfo: nil, repeats: true)
+        
+        
+        //        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(runAction), userInfo: nil, repeats: true)
         
         
         //youtube串流
@@ -129,15 +156,30 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
         webSocketConnect()
         receive()
         
+        let userEmail = Auth.auth().currentUser?.email
+        let docRef = db.collection(userEmail!).document(String(streamerid!))
+        
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                let messageObject = document.data(with: ServerTimestampBehavior.none)
+                self.followPic.isHidden = .init(messageObject!["isHidden"]! as! String)!
+                print(messageObject!["isHidden"]!)
+                print("Document data: \(dataDescription)")
+            } else {
+                print("Document does not exist")
+            }
+        }
+        
     }
     
-//    @objc func runAction(){
-//        if runLabel.frame.maxX > 0{
-//        runLabel.frame.origin.x -= 5
-//        }else{
-//            runLabel.frame.origin.x = 414
-//        }
-//    }
+    //    @objc func runAction(){
+    //        if runLabel.frame.maxX > 0{
+    //        runLabel.frame.origin.x -= 5
+    //        }else{
+    //            runLabel.frame.origin.x = 414
+    //        }
+    //    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -213,11 +255,14 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
     
     @IBAction func tapToInfo(_ sender: UITapGestureRecognizer) {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InfoViewController") as! InfoViewController
+        vc.runDelegate = self
         vc.hostpic = hostpic
         vc.hostbg = hostbg
         vc.hostname = hostname
         vc.hosttitle = hosttitle
         vc.streamerid = streamerid
+        vc.hostpicURL = hostpicURL
+        vc.hostbgURL = hostbgURL
         vc.modalPresentationStyle = .overFullScreen
         present(vc, animated: true)
     }
@@ -248,6 +293,13 @@ class LiveRoomViewController: UIViewController,UITableViewDataSource, UITableVie
     
     @IBAction func stayBtn(_ sender: UIButton) {
         alertView.isHidden = true
+        animationView = AnimateViewModel().makeAnimationView(initName: "brokenheart", speed: 2)
+        view.addSubview(animationView!)
+        AnimateViewModel().playAnimationReverse(animationView: animationView!)
+        DispatchQueue.main.asyncAfter(deadline: .now()+1) { [self] in
+            AnimateViewModel().stopAnimation(animationView: animationView!)
+            animationView?.removeFromSuperview()
+        }
     }
     
     
@@ -449,9 +501,9 @@ extension LiveRoomViewController: URLSessionWebSocketDelegate {
                                         self.runLabel.frame.origin.x = -414
                                     }
                                 }else{
-                                UIView.animate(withDuration: 10) {
-                                    self.runLabel.frame.origin.x = -414
-                                }
+                                    UIView.animate(withDuration: 10) {
+                                        self.runLabel.frame.origin.x = -414
+                                    }
                                 }
                             }
                             if myJSONModel.event == "sys_room_endStream"{
@@ -468,6 +520,7 @@ extension LiveRoomViewController: URLSessionWebSocketDelegate {
                 }
             case .failure(let error):
                 print(error)
+                return
             }
             self.tableView.reloadData()
             print("開始接收資料")
@@ -504,68 +557,107 @@ extension LiveRoomViewController: URLSessionWebSocketDelegate {
     }
 }
 
-extension LiveRoomViewController: YTPlayerViewDelegate {
+//extension LiveRoomViewController: YTPlayerViewDelegate {
+//
+//    func playerView(_ playerView: YTPlayerView, didChangeTo state: YTPlayerState) {
+//        if state == .ended {
+//            videoPlayerView.playVideo()
+//        }
+//    }
+//
+//
+//    func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
+//        self.videoPlayerView.playVideo()
+//    }
+//
+//    func fetchChanelInfo(){
+//
+//        let strUrl = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=\(CommonData().channelID)&key=\(CommonData().ApiKeys)"
+//
+//        if let url = URL(string: strUrl){
+//            URLSession.shared.dataTask(with: url) { data, response, error in
+//                if let data = data{
+//                    let decoder = JSONDecoder()
+//                    do {
+//                        let searchResponse = try decoder.decode(ChannelResponse.self, from: data)
+//
+//                        self.channelInfo = searchResponse.items![0]
+//                        //                        print(searchResponse.items![0])
+//
+//                    }
+//                    catch  {
+//                        print("channel response is invalid\(error)")
+//                    }
+//                }
+//            }.resume()
+//
+//
+//        }
+//
+//    }
+//
+//
+//    func fetchPlayListInfo(){
+//        //  guard let uploadID = g_CommomData?.uploadID else { print("no uploadId"); return  }
+//        //        guard let uploadID = uploadId else { print("no uploadId"); return  }
+//
+//        let strUrl =
+//        "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=\(CommonData().maxResult)&playlistId=\(CommonData().playlistID)&key=\(CommonData().ApiKeys)"
+//
+//
+//
+//        if let url = URL(string: strUrl){
+//            URLSession.shared.dataTask(with: url) { data, response, error in
+//                if let data = data{
+//                    let decoder = JSONDecoder()
+//                    do {
+//                        let searchResponse = try decoder.decode(PlayListResponse.self, from: data)
+//                        self.videoResult = searchResponse.items
+//                    } catch  {
+//                        print("playlist response is invalid\(error)")
+//                    }
+//
+//                }
+//            }.resume()
+//        }
+//    }
+//}
+
+extension LiveRoomViewController: LabelDelegate {
     
-    func playerView(_ playerView: YTPlayerView, didChangeTo state: YTPlayerState) {
-        if state == .ended {
-            videoPlayerView.playVideo()
+    
+    
+    func runlabel(message: String) {
+        
+        runLabel2.text = message
+        if self.runLabel2.frame.minX == -414{
+            self.runLabel2.frame.origin.x = 414
+            UIView.animate(withDuration: 5) {
+                self.runLabel2.frame.origin.x = -414
+            }
+        }else{
+            UIView.animate(withDuration: 5) {
+                self.runLabel2.frame.origin.x = -414
+            }
         }
+        followPic.isHidden = false
+        sendMessage(sendmessage: "追蹤了主播！！")
     }
     
-    
-    func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
-        self.videoPlayerView.playVideo()
-    }
-    
-    func fetchChanelInfo(){
-        
-        let strUrl = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=\(CommonData().channelID)&key=\(CommonData().ApiKeys)"
-        
-        if let url = URL(string: strUrl){
-            URLSession.shared.dataTask(with: url) { data, response, error in
-                if let data = data{
-                    let decoder = JSONDecoder()
-                    do {
-                        let searchResponse = try decoder.decode(ChannelResponse.self, from: data)
-                        
-                        self.channelInfo = searchResponse.items![0]
-//                        print(searchResponse.items![0])
-                        
-                    }
-                    catch  {
-                        print("channel response is invalid\(error)")
-                    }
-                }
-            }.resume()
-            
-            
+    func cancelFollow(message: String) {
+        runLabel2.text = message
+        if self.runLabel2.frame.minX == -414{
+            self.runLabel2.frame.origin.x = 414
+            UIView.animate(withDuration: 5) {
+                self.runLabel2.frame.origin.x = -414
+            }
+        }else{
+            UIView.animate(withDuration: 5) {
+                self.runLabel2.frame.origin.x = -414
+            }
         }
-        
+        followPic.isHidden = true
+        sendMessage(sendmessage: "取消追蹤主播！！")
     }
     
-    
-    func fetchPlayListInfo(){
-        //  guard let uploadID = g_CommomData?.uploadID else { print("no uploadId"); return  }
-        //        guard let uploadID = uploadId else { print("no uploadId"); return  }
-        
-        let strUrl =
-        "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=\(CommonData().maxResult)&playlistId=\(CommonData().playlistID)&key=\(CommonData().ApiKeys)"
-        
-        
-        
-        if let url = URL(string: strUrl){
-            URLSession.shared.dataTask(with: url) { data, response, error in
-                if let data = data{
-                    let decoder = JSONDecoder()
-                    do {
-                        let searchResponse = try decoder.decode(PlayListResponse.self, from: data)
-                        self.videoResult = searchResponse.items
-                    } catch  {
-                        print("playlist response is invalid\(error)")
-                    }
-                    
-                }
-            }.resume()
-        }
-    }
 }

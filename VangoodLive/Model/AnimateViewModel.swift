@@ -30,6 +30,11 @@ class AnimateViewModel: UIViewController {
         animationView.play()
     }
     
+    func playAnimationReverse(animationView:AnimationView){
+        animationView.isHidden = false
+        animationView.play(fromProgress: 1, toProgress: 0, loopMode: .playOnce)
+    }
+    
     func stopAnimation(animationView:AnimationView){
         animationView.stop()
         animationView.isHidden = true

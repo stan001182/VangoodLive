@@ -10,6 +10,7 @@ import FirebaseFirestore
 import FirebaseAuth
 
 
+
 class InfoViewController: UIViewController {
     
     @IBOutlet weak var hostPic: UIImageView!
@@ -24,8 +25,11 @@ class InfoViewController: UIViewController {
     var hostbg : UIImage?
     var hostname : String?
     var hosttitle : String?
+    var hostpicURL : String?
+    var hostbgURL : String?
     var followOrNot = "true"
     let db = Firestore.firestore()
+    var runDelegate:LabelDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +70,7 @@ class InfoViewController: UIViewController {
             alertview(title: "尚未登入", message: "請登入會員")
             return
         }
+        let userName = Auth.auth().currentUser?.displayName
         let userEmail = Auth.auth().currentUser?.email
         
         if sender.titleLabel?.text == "Follow"{
@@ -75,7 +80,12 @@ class InfoViewController: UIViewController {
             
             db.collection(userEmail!).document(String(streamerid!)).setData([
                 "follow": "Unfollow",
-                "isHidden": followOrNot
+                "isHidden": followOrNot,
+                "hostpicURL": hostpicURL ?? "https://raw.githubusercontent.com/stan001182/mac.pic/pic/images/paopao%403x.png",
+                "hostbgURL": hostbgURL ?? "https://raw.githubusercontent.com/stan001182/mac.pic/pic/images/paopao%403x.png",
+                "streamerid": streamerid ?? "",
+                "hostname" : hostname ?? "",
+                "hosttitle" : hosttitle ?? ""
             ]) { err in
                 if let err = err {
                     print("Error writing document: \(err)")
@@ -83,22 +93,34 @@ class InfoViewController: UIViewController {
                     print("Document successfully written!")
                 }
             }
+            
+            runDelegate.runlabel(message: "\(userName ?? "訪客")追蹤了主播\u{2665}\u{FE0F}\u{2665}\u{FE0F}")
             
         }else{
             sender.setTitle("Follow", for: .normal)
             followPic.isHidden = true
             followOrNot = "true"
             
-            db.collection(userEmail!).document(String(streamerid!)).setData([
-                "follow": "Follow",
-                "isHidden": followOrNot
-            ]) { err in
+//            db.collection(userEmail!).document(String(streamerid!)).setData([
+//                "follow": "Follow",
+//                "isHidden": followOrNot
+//            ]) { err in
+//                if let err = err {
+//                    print("Error writing document: \(err)")
+//                } else {
+//                    print("Document successfully written!")
+//                }
+//            }
+            
+            db.collection(userEmail!).document(String(streamerid!)).delete() { err in
                 if let err = err {
-                    print("Error writing document: \(err)")
+                    print("Error removing document: \(err)")
                 } else {
-                    print("Document successfully written!")
+                    print("Document successfully removed!")
                 }
             }
+            
+            runDelegate.cancelFollow(message: "\(userName ?? "訪客")取消追蹤主播\u{1F494}\u{FE0F}\u{1F494}\u{FE0F}")
             
         }
     }
@@ -115,6 +137,9 @@ class InfoViewController: UIViewController {
             alertController.dismiss(animated: true, completion: nil)
         }
     }
-    
-    
+}
+
+protocol LabelDelegate {
+    func runlabel (message:String)
+    func cancelFollow (message:String)
 }

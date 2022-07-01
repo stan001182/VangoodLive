@@ -10,15 +10,26 @@ import PhotosUI
 import FirebaseAuth
 import FirebaseStorage
 import FirebaseStorageUI
+import FirebaseFirestore
 
 
-class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate, PHPickerViewControllerDelegate {
+
+class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate, PHPickerViewControllerDelegate, UIPopoverPresentationControllerDelegate {
     
     @IBOutlet weak var headShot: UIImageView!
     @IBOutlet weak var nicknameLB: UILabel!
     @IBOutlet weak var accountLB: UILabel!
+    @IBOutlet weak var followListBtn: UIButton!
     
     var handle: AuthStateDidChangeListenerHandle?
+    let db = Firestore.firestore()
+    var hostpicArray = [String]()
+    var hostbgArray = [String]()
+    var hostname = [String]()
+    var hosttitle = [String]()
+    var nickname = NSLocalizedString("visitor", comment: "")
+    var streamerid = [Int]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,16 +51,39 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
         let uid = user!.uid
         let displayName = user!.displayName
         let photoUrl = user!.photoURL
+        nickname = user!.displayName ?? ""
         
         headShot.sd_setImage(with: reference, placeholderImage: placeholdImage)
         nicknameLB.text = displayName
         accountLB.text = email
         
         print("使用者帳號:\(email!),Uid編號:\(uid),暱稱:\((displayName)!),相片URL:\((photoUrl)!)")
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        hostpicArray.removeAll()
+        let userEmail = Auth.auth().currentUser?.email
+        db.collection(userEmail!).getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+//                    print("\(document.documentID) => \(document.data())")
+                    print(document.data()["hostpicURL"]!)
+                    self.hostpicArray.append(document.data()["hostpicURL"]! as! String)
+                    self.hostbgArray.append(document.data()["hostbgURL"]! as! String)
+                    self.hostname.append(document.data()["hostname"]! as! String)
+                    print(document.data()["hostname"]!)
+                    self.hosttitle.append(document.data()["hosttitle"]! as! String)
+                    self.streamerid.append(document.data()["streamerid"]! as! Int)
+                    print(document.data()["streamerid"]!
+                    )
+                }
+            }
+        }
+        
         handle = Auth.auth().addStateDidChangeListener { auth, user in
         }
     }
@@ -58,6 +92,32 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
         super.viewWillDisappear(animated)
         Auth.auth().removeStateDidChangeListener(handle!)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+             segue.destination.popoverPresentationController?.delegate = self
+        if segue.identifier == "FollowViewController"{
+            if let vc = segue.destination as? FollowViewController{
+                vc.popoverPresentationController?.sourceView = followListBtn
+                vc.hostpicArray = self.hostpicArray
+                vc.hostbgArray = self.hostbgArray
+                vc.hostname = self.hostname
+                vc.hosttitle = self.hosttitle
+                vc.nickname = self.nickname
+                vc.streamerid = self.streamerid
+            }
+        }
+    }
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+       return .none
+    }
+    
+//    @IBAction func followListBtn(_ sender: UIButton) {
+//        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FollowViewController") as! FollowViewController
+//        vc.hostpicArray = hostpicArray
+//        vc.modalPresentationStyle = .overFullScreen
+//        present(vc, animated: false)
+//    }
     
     @IBAction func changeNameBtn(_ sender: UIButton) {
         let controller = UIAlertController(title: NSLocalizedString("title6", comment: ""), message: NSLocalizedString("message6", comment: ""), preferredStyle: .alert)
@@ -229,3 +289,4 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
         picker.dismiss(animated: true, completion: nil)
     }
 }
+

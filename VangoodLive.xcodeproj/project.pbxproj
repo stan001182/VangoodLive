@@ -8,19 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		056E4246BD8A6B89F3FAA572 /* Pods_VangoodLive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92212492F060D2943E7FCA11 /* Pods_VangoodLive.framework */; };
+		4817F7482823BD57009E1A78 /* FollowCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4817F7472823BD57009E1A78 /* FollowCollectionViewCell.swift */; };
+		4817F74A2824B598009E1A78 /* FollowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4817F7492824B598009E1A78 /* FollowViewController.swift */; };
 		485CC26C2817900600A93E3B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 485CC26E2817900600A93E3B /* Localizable.strings */; };
 		486CDA9E28201B32002D15A2 /* rocket-diamond.json in Resources */ = {isa = PBXBuildFile; fileRef = 486CDA9D28201B32002D15A2 /* rocket-diamond.json */; };
 		486CDAA028201B58002D15A2 /* rocket.json in Resources */ = {isa = PBXBuildFile; fileRef = 486CDA9F28201B58002D15A2 /* rocket.json */; };
 		486CDAA228201DCA002D15A2 /* sakura.json in Resources */ = {isa = PBXBuildFile; fileRef = 486CDAA128201DCA002D15A2 /* sakura.json */; };
 		486CDAA428201F10002D15A2 /* medal.json in Resources */ = {isa = PBXBuildFile; fileRef = 486CDAA328201F10002D15A2 /* medal.json */; };
 		486CDAA8282026EC002D15A2 /* wreath.json in Resources */ = {isa = PBXBuildFile; fileRef = 486CDAA7282026EC002D15A2 /* wreath.json */; };
-		48AA35302817CB3D007F2844 /* YouTubeiOSPlayerHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 48AA352F2817CB3D007F2844 /* YouTubeiOSPlayerHelper */; };
 		48AA35362817CCB1007F2844 /* YTStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AA35352817CCB1007F2844 /* YTStruct.swift */; };
 		48AA353C2817F58C007F2844 /* AnimateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AA353B2817F58C007F2844 /* AnimateViewModel.swift */; };
 		48AA353E2818F43B007F2844 /* car.json in Resources */ = {isa = PBXBuildFile; fileRef = 48AA353D2818F43B007F2844 /* car.json */; };
 		48AA35422818FC8D007F2844 /* heart-fly.json in Resources */ = {isa = PBXBuildFile; fileRef = 48AA35412818FC8D007F2844 /* heart-fly.json */; };
-		48AA3566281A7D58007F2844 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AA3565281A7D58007F2844 /* ShareViewController.swift */; };
-		48AA356A281A915B007F2844 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AA3569281A915B007F2844 /* InfoViewController.swift */; };
 		48AA356C281BBE22007F2844 /* GiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AA356B281BBE22007F2844 /* GiftViewController.swift */; };
 		48AA356E281BCDC7007F2844 /* GiftCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AA356D281BCDC7007F2844 /* GiftCollectionViewCell.swift */; };
 		4B26CE7A280A737A0032FF2D /* hime3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E3E8F9A127F33E3E0047A841 /* hime3.mp4 */; };
@@ -43,6 +42,8 @@
 		E333588E27F1DD3C00CAEEB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E333588D27F1DD3C00CAEEB1 /* Assets.xcassets */; };
 		E333589127F1DD3C00CAEEB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E333588F27F1DD3C00CAEEB1 /* LaunchScreen.storyboard */; };
 		E333589D27F1E0AA00CAEEB1 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E333589C27F1E0AA00CAEEB1 /* HomeCollectionViewCell.swift */; };
+		E3822EFC286618B000259151 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3822EFA286618B000259151 /* ShareViewController.swift */; };
+		E3822EFD286618B000259151 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3822EFB286618B000259151 /* InfoViewController.swift */; };
 		E3BC3D7D27F4AA440066C046 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3BC3D7C27F4AA440066C046 /* GoogleService-Info.plist */; };
 		E3E8F9A027F33CB20047A841 /* RegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8F99F27F33CB20047A841 /* RegistViewController.swift */; };
 		E3E8F9A427F3489E0047A841 /* LiveJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8F9A327F3489E0047A841 /* LiveJsonModel.swift */; };
@@ -50,6 +51,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4817F7472823BD57009E1A78 /* FollowCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowCollectionViewCell.swift; sourceTree = "<group>"; };
+		4817F7492824B598009E1A78 /* FollowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowViewController.swift; sourceTree = "<group>"; };
 		485CC26D2817900600A93E3B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		486CDA9D28201B32002D15A2 /* rocket-diamond.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "rocket-diamond.json"; sourceTree = "<group>"; };
 		486CDA9F28201B58002D15A2 /* rocket.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rocket.json; sourceTree = "<group>"; };
@@ -66,8 +69,6 @@
 		48AA353B2817F58C007F2844 /* AnimateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimateViewModel.swift; sourceTree = "<group>"; };
 		48AA353D2818F43B007F2844 /* car.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = car.json; sourceTree = "<group>"; };
 		48AA35412818FC8D007F2844 /* heart-fly.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "heart-fly.json"; sourceTree = "<group>"; };
-		48AA3565281A7D58007F2844 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShareViewController.swift; path = /Users/stan_tseng/Desktop/VangoodLive/VangoodLive/Controller/ShareViewController.swift; sourceTree = "<absolute>"; };
-		48AA3569281A915B007F2844 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InfoViewController.swift; path = /Users/stan_tseng/Desktop/VangoodLive/VangoodLive/Controller/InfoViewController.swift; sourceTree = "<absolute>"; };
 		48AA356B281BBE22007F2844 /* GiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftViewController.swift; sourceTree = "<group>"; };
 		48AA356D281BCDC7007F2844 /* GiftCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCollectionViewCell.swift; sourceTree = "<group>"; };
 		4B92DF2327F765AA000975A3 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +96,8 @@
 		E333589027F1DD3C00CAEEB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E333589227F1DD3C00CAEEB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E333589C27F1E0AA00CAEEB1 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		E3822EFA286618B000259151 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		E3822EFB286618B000259151 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		E3B931541D56CDF3F189902C /* Pods-VangoodLive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VangoodLive.release.xcconfig"; path = "Target Support Files/Pods-VangoodLive/Pods-VangoodLive.release.xcconfig"; sourceTree = "<group>"; };
 		E3BC3D7C27F4AA440066C046 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E3E8F99F27F33CB20047A841 /* RegistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistViewController.swift; sourceTree = "<group>"; };
@@ -109,7 +112,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				056E4246BD8A6B89F3FAA572 /* Pods_VangoodLive.framework in Frameworks */,
-				48AA35302817CB3D007F2844 /* YouTubeiOSPlayerHelper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +216,7 @@
 				4B9513E528001A3D00CFAF8D /* CollectionReusableViewForHeader.swift */,
 				4B9514092803266D00CFAF8D /* ChatCell.swift */,
 				48AA356D281BCDC7007F2844 /* GiftCollectionViewCell.swift */,
+				4817F7472823BD57009E1A78 /* FollowCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -224,12 +227,13 @@
 				4BDD00DD27F40CB80092B12A /* TabBarViewController.swift */,
 				4B9513E72800A2C200CFAF8D /* HomeViewController.swift */,
 				E333588827F1DD3C00CAEEB1 /* LiveRoomViewController.swift */,
-				48AA3569281A915B007F2844 /* InfoViewController.swift */,
-				48AA3565281A7D58007F2844 /* ShareViewController.swift */,
+				E3822EFB286618B000259151 /* InfoViewController.swift */,
+				E3822EFA286618B000259151 /* ShareViewController.swift */,
 				48AA356B281BBE22007F2844 /* GiftViewController.swift */,
 				E3E8F9A627F3760C0047A841 /* SearchViewController.swift */,
 				4BDD010127F4528D0092B12A /* ProfileLogInViewController.swift */,
 				4B92DF2527F771AD000975A3 /* ProfileViewController.swift */,
+				4817F7492824B598009E1A78 /* FollowViewController.swift */,
 				4B92DF2327F765AA000975A3 /* ResetPasswordViewController.swift */,
 				E3E8F99F27F33CB20047A841 /* RegistViewController.swift */,
 			);
@@ -264,7 +268,6 @@
 			);
 			name = VangoodLive;
 			packageProductDependencies = (
-				48AA352F2817CB3D007F2844 /* YouTubeiOSPlayerHelper */,
 			);
 			productName = VangoodLive;
 			productReference = E333588127F1DD3C00CAEEB1 /* VangoodLive.app */;
@@ -297,7 +300,6 @@
 			);
 			mainGroup = E333587827F1DD3C00CAEEB1;
 			packageReferences = (
-				48AA352E2817CB3D007F2844 /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */,
 			);
 			productRefGroup = E333588227F1DD3C00CAEEB1 /* Products */;
 			projectDirPath = "";
@@ -388,20 +390,22 @@
 				E3E8F9A027F33CB20047A841 /* RegistViewController.swift in Sources */,
 				E333589D27F1E0AA00CAEEB1 /* HomeCollectionViewCell.swift in Sources */,
 				4B92DF2427F765AA000975A3 /* ResetPasswordViewController.swift in Sources */,
-				48AA356A281A915B007F2844 /* InfoViewController.swift in Sources */,
 				4B9513E628001A3D00CFAF8D /* CollectionReusableViewForHeader.swift in Sources */,
 				4B9513E82800A2C200CFAF8D /* HomeViewController.swift in Sources */,
-				48AA3566281A7D58007F2844 /* ShareViewController.swift in Sources */,
 				E3E8F9A727F3760C0047A841 /* SearchViewController.swift in Sources */,
 				E3E8F9A427F3489E0047A841 /* LiveJsonModel.swift in Sources */,
+				4817F74A2824B598009E1A78 /* FollowViewController.swift in Sources */,
+				E3822EFC286618B000259151 /* ShareViewController.swift in Sources */,
 				4B95140A2803266D00CFAF8D /* ChatCell.swift in Sources */,
 				4B92DF2627F771AD000975A3 /* ProfileViewController.swift in Sources */,
+				4817F7482823BD57009E1A78 /* FollowCollectionViewCell.swift in Sources */,
 				4BDD00DE27F40CB80092B12A /* TabBarViewController.swift in Sources */,
 				48AA35362817CCB1007F2844 /* YTStruct.swift in Sources */,
 				48AA353C2817F58C007F2844 /* AnimateViewModel.swift in Sources */,
 				E333588927F1DD3C00CAEEB1 /* LiveRoomViewController.swift in Sources */,
 				E333588527F1DD3C00CAEEB1 /* AppDelegate.swift in Sources */,
 				48AA356C281BBE22007F2844 /* GiftViewController.swift in Sources */,
+				E3822EFD286618B000259151 /* InfoViewController.swift in Sources */,
 				E333588727F1DD3C00CAEEB1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -656,25 +660,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		48AA352E2817CB3D007F2844 /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/youtube/youtube-ios-player-helper.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		48AA352F2817CB3D007F2844 /* YouTubeiOSPlayerHelper */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 48AA352E2817CB3D007F2844 /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */;
-			productName = YouTubeiOSPlayerHelper;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E333587927F1DD3C00CAEEB1 /* Project object */;
 }

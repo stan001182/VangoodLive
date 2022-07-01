@@ -24,6 +24,7 @@ class SearchViewController: UIViewController,UICollectionViewDelegate,UICollecti
     
     var searching = false
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -209,7 +210,7 @@ class SearchViewController: UIViewController,UICollectionViewDelegate,UICollecti
                 }
                 controller.hostname = live.nickname
                 controller.hosttitle = live.stream_title
-                
+                controller.streamerid = live.streamer_id
             }
         
         DispatchQueue.main.asyncAfter(deadline: .now()+1) { [self] in
